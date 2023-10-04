@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepage_carousels",
+  "info": {
+    "singularName": "homepage-carousel",
+    "pluralName": "homepage-carousels",
+    "displayName": "Homepage Carousel"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "tagline": {
+      "type": "string"
+    },
+    "picture": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

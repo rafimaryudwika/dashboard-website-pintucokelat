@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "prewedding_weddings",
+  "info": {
+    "singularName": "prewedding-wedding",
+    "pluralName": "prewedding-weddings",
+    "displayName": "Wedding Client Lists",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nama_klien": {
+      "type": "string"
+    },
+    "foto_utama": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "deskripsi": {
+      "type": "text"
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "modal": {
+      "type": "uid",
+      "targetField": "nama_klien"
+    },
+    "tipe": {
+      "type": "enumeration",
+      "enum": [
+        "Engagement",
+        "Pre-Wedding",
+        "Wedding"
+      ]
+    }
+  }
+}
