@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_gallery_single_photos",
+  "info": {
+    "displayName": "SinglePhoto",
+    "icon": "landscape",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Photo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

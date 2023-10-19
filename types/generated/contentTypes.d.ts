@@ -677,31 +677,33 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiHomepageCarouselHomepageCarousel extends Schema.SingleType {
-  collectionName: 'homepage_carousels';
+export interface ApiCreativeProjectCreativeProject extends Schema.SingleType {
+  collectionName: 'creative_projects';
   info: {
-    singularName: 'homepage-carousel';
-    pluralName: 'homepage-carousels';
-    displayName: 'Homepage Carousel';
+    singularName: 'creative-project';
+    pluralName: 'creative-projects';
+    displayName: 'Creative Project';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     title: Attribute.String;
-    tagline: Attribute.String;
-    picture: Attribute.Media;
+    SEO: Attribute.Component<'shared.seo'>;
+    Carousel: Attribute.Component<'global-components.carousel'>;
+    CallToAction: Attribute.Component<'shared.call-to-action'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::homepage-carousel.homepage-carousel',
+      'api::creative-project.creative-project',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::homepage-carousel.homepage-carousel',
+      'api::creative-project.creative-project',
       'oneToOne',
       'admin::user'
     > &
@@ -709,31 +711,67 @@ export interface ApiHomepageCarouselHomepageCarousel extends Schema.SingleType {
   };
 }
 
-export interface ApiOurClientOurClient extends Schema.CollectionType {
-  collectionName: 'our_clients';
+export interface ApiHomePageHomePage extends Schema.SingleType {
+  collectionName: 'home_pages';
   info: {
-    singularName: 'our-client';
-    pluralName: 'our-clients';
-    displayName: 'Our Client';
+    singularName: 'home-page';
+    pluralName: 'home-pages';
+    displayName: 'HomePage';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    nama_klien: Attribute.String;
-    length: Attribute.Integer;
-    logo: Attribute.Media;
+    judul: Attribute.String;
+    tagline: Attribute.String;
+    OurClient: Attribute.Component<'homepage-components.our-clients-block'>;
+    AlertBar: Attribute.Component<'global-components.test'>;
+    Welcome: Attribute.Component<'homepage-components.welcome-block'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::our-client.our-client',
+      'api::home-page.home-page',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::our-client.our-client',
+      'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPhotographyPhotography extends Schema.SingleType {
+  collectionName: 'photographies';
+  info: {
+    singularName: 'photography';
+    pluralName: 'photographies';
+    displayName: 'Photography';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    SEO: Attribute.Component<'shared.seo'>;
+    Carousel: Attribute.Component<'global-components.carousel'>;
+    CallToAction: Attribute.Component<'shared.call-to-action'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::photography.photography',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::photography.photography',
       'oneToOne',
       'admin::user'
     > &
@@ -781,35 +819,32 @@ export interface ApiPreweddingWeddingPreweddingWedding
   };
 }
 
-export interface ApiProdukDiHomepageProdukDiHomepage
-  extends Schema.CollectionType {
-  collectionName: 'produk_di_homepages';
+export interface ApiProductionHouseProductionHouse extends Schema.SingleType {
+  collectionName: 'production_houses';
   info: {
-    singularName: 'produk-di-homepage';
-    pluralName: 'produk-di-homepages';
-    displayName: 'Produk di Homepage';
+    singularName: 'production-house';
+    pluralName: 'production-houses';
+    displayName: 'Production House';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    nama_produk: Attribute.String;
-    slogan: Attribute.String;
-    url: Attribute.String;
-    main_image: Attribute.Media;
-    accessible: Attribute.Boolean;
-    slideshows: Attribute.Media;
+    Title: Attribute.String & Attribute.Required;
+    SEO: Attribute.Component<'shared.seo'>;
+    Carousel: Attribute.Component<'global-components.carousel'>;
+    CallToAction: Attribute.Component<'shared.call-to-action'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::produk-di-homepage.produk-di-homepage',
+      'api::production-house.production-house',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::produk-di-homepage.produk-di-homepage',
+      'api::production-house.production-house',
       'oneToOne',
       'admin::user'
     > &
@@ -860,6 +895,75 @@ export interface ApiPromotionPromotion extends Schema.CollectionType {
   };
 }
 
+export interface ApiSelfPhotoStudioSelfPhotoStudio extends Schema.SingleType {
+  collectionName: 'self_photo_studios';
+  info: {
+    singularName: 'self-photo-studio';
+    pluralName: 'self-photo-studios';
+    displayName: 'Self-Photo Studio';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    Alert: Attribute.Component<'global-components.test'>;
+    PriceLists: Attribute.Component<'self-photo-studio.pricelist-block'>;
+    ColorChoices: Attribute.Component<'self-photo-studio.color-choices-block'>;
+    CallToAction: Attribute.Component<'self-photo-studio.self-photo-cta'>;
+    Header: Attribute.Component<'self-photo-studio.self-photo-header'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::self-photo-studio.self-photo-studio',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::self-photo-studio.self-photo-studio',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiWeddingPageWeddingPage extends Schema.SingleType {
+  collectionName: 'wedding_pages';
+  info: {
+    singularName: 'wedding-page';
+    pluralName: 'wedding-pages';
+    displayName: 'Wedding Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    SEO: Attribute.Component<'shared.seo'>;
+    Carousel: Attribute.Component<'global-components.carousel', true>;
+    CallToAction: Attribute.Component<'shared.call-to-action'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::wedding-page.wedding-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::wedding-page.wedding-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -876,11 +980,14 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::homepage-carousel.homepage-carousel': ApiHomepageCarouselHomepageCarousel;
-      'api::our-client.our-client': ApiOurClientOurClient;
+      'api::creative-project.creative-project': ApiCreativeProjectCreativeProject;
+      'api::home-page.home-page': ApiHomePageHomePage;
+      'api::photography.photography': ApiPhotographyPhotography;
       'api::prewedding-wedding.prewedding-wedding': ApiPreweddingWeddingPreweddingWedding;
-      'api::produk-di-homepage.produk-di-homepage': ApiProdukDiHomepageProdukDiHomepage;
+      'api::production-house.production-house': ApiProductionHouseProductionHouse;
       'api::promotion.promotion': ApiPromotionPromotion;
+      'api::self-photo-studio.self-photo-studio': ApiSelfPhotoStudioSelfPhotoStudio;
+      'api::wedding-page.wedding-page': ApiWeddingPageWeddingPage;
     }
   }
 }

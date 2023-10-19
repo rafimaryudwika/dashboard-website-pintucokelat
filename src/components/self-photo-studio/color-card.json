@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_selfphoto_colorcards",
+  "info": {
+    "displayName": "ColorCard",
+    "icon": "paint"
+  },
+  "options": {},
+  "attributes": {
+    "color": {
+      "type": "string",
+      "required": true
+    },
+    "nama": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

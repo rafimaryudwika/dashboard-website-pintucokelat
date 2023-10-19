@@ -1,0 +1,34 @@
+{
+  "kind": "singleType",
+  "collectionName": "wedding_pages",
+  "info": {
+    "singularName": "wedding-page",
+    "pluralName": "wedding-pages",
+    "displayName": "Wedding Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "Carousel": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global-components.carousel"
+    },
+    "CallToAction": {
+      "displayName": "CallToAction",
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.call-to-action"
+    }
+  }
+}

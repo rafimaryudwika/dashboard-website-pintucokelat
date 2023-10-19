@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_homepage_our_products_blocks",
+  "info": {
+    "displayName": "Our Products Block",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "products": {
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage-components.product-lists"
+    }
+  }
+}

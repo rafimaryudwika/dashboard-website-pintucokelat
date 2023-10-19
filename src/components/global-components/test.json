@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_test_tests",
+  "info": {
+    "displayName": "AlertBar",
+    "icon": "bell",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "clickable_text": {
+      "type": "string"
+    },
+    "clickable_url": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "promotion",
+        "announcement",
+        "flash_deal",
+        "important"
+      ]
+    },
+    "enable": {
+      "type": "boolean"
+    }
+  }
+}

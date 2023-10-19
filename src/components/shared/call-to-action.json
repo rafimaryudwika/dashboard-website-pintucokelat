@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_shared_call_to_actions",
+  "info": {
+    "displayName": "CallToAction",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "CTATitle": {
+      "type": "string",
+      "required": true
+    },
+    "deskripsi": {
+      "type": "string"
+    },
+    "PriceListFile": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "ContactURL": {
+      "type": "string"
+    }
+  }
+}
