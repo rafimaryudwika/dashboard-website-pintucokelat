@@ -1,0 +1,19 @@
+{
+    "collectionName": "components_self_photo_studio_self_photo_ctas",
+    "info": {
+        "displayName": "SelfPhotoCTA",
+        "icon": "volumeUp"
+    },
+    "options": {},
+    "attributes": {
+        "CallToAction": {
+            "type": "string"
+        },
+        "ButtonText": {
+            "type": "string"
+        },
+        "URL": {
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "collectionName": "components_homepage_our_clients_blocks",
+    "info": {
+        "displayName": "Our Clients Block",
+        "icon": "bulletList"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "Lists": {
+            "type": "component",
+            "repeatable": true,
+            "component": "homepage-components.our-client"
+        }
+    }
+}

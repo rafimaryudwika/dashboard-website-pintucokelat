@@ -1,0 +1,35 @@
+{
+    "collectionName": "components_selfphotostudio_pricelistcards",
+    "info": {
+        "displayName": "PricelistCard",
+        "icon": "shoppingCart"
+    },
+    "options": {},
+    "attributes": {
+        "NamaPaket": {
+            "type": "string"
+        },
+        "Harga": {
+            "type": "string"
+        },
+        "JumlahOrang": {
+            "type": "string"
+        },
+        "Durasi": {
+            "type": "string"
+        },
+        "Deskripsi": {
+            "type": "string"
+        },
+        "Photo": {
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ],
+            "type": "media",
+            "multiple": false
+        }
+    }
+}

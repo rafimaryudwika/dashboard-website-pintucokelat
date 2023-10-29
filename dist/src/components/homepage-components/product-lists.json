@@ -1,0 +1,45 @@
+{
+    "collectionName": "components_homepage_product_lists",
+    "info": {
+        "displayName": "ProductCard",
+        "icon": "cube",
+        "description": ""
+    },
+    "options": {},
+    "attributes": {
+        "nama_produk": {
+            "type": "string"
+        },
+        "tagline": {
+            "type": "string"
+        },
+        "accessible": {
+            "type": "boolean"
+        },
+        "url": {
+            "type": "string"
+        },
+        "main_image": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ]
+        },
+        "slideshows": {
+            "type": "media",
+            "multiple": true,
+            "required": false,
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ]
+        }
+    }
+}

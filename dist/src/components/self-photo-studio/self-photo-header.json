@@ -1,0 +1,28 @@
+{
+    "collectionName": "components_self_photo_studio_self_photo_headers",
+    "info": {
+        "displayName": "SelfPhotoHeader",
+        "icon": "landscape"
+    },
+    "options": {},
+    "attributes": {
+        "Photos": {
+            "allowedTypes": [
+                "images"
+            ],
+            "type": "media",
+            "multiple": true,
+            "required": true
+        },
+        "FirstTagline": {
+            "type": "string",
+            "required": true,
+            "default": "The 1st Self-Photo Studio in Padang"
+        },
+        "SecondTagline": {
+            "type": "string",
+            "required": true,
+            "default": "#GayamuKebebasanmu!"
+        }
+    }
+}

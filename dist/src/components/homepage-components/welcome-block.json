@@ -1,0 +1,26 @@
+{
+    "collectionName": "components_homepage_welcome_blocks",
+    "info": {
+        "displayName": "WelcomeBlock",
+        "icon": "gate"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "tagline": {
+            "type": "string"
+        },
+        "hero_image": {
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ],
+            "type": "media",
+            "multiple": false
+        }
+    }
+}

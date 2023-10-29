@@ -1,0 +1,19 @@
+{
+    "collectionName": "components_selfphoto_colorchoices",
+    "info": {
+        "displayName": "ColorChoicesBlock",
+        "icon": "chartBubble"
+    },
+    "options": {},
+    "attributes": {
+        "heading": {
+            "type": "string"
+        },
+        "ColorCard": {
+            "displayName": "ColorCard",
+            "type": "component",
+            "repeatable": true,
+            "component": "self-photo-studio.color-card"
+        }
+    }
+}

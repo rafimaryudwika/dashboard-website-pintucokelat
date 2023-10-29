@@ -1,0 +1,40 @@
+{
+    "collectionName": "components_homepage_components_services_lists",
+    "info": {
+        "displayName": "ServicesList",
+        "description": ""
+    },
+    "options": {},
+    "attributes": {
+        "service_name": {
+            "type": "string",
+            "required": true,
+            "unique": true
+        },
+        "tagline": {
+            "type": "string"
+        },
+        "main_photo": {
+            "type": "media",
+            "multiple": false,
+            "required": true,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "shuffledPhotos": {
+            "type": "media",
+            "multiple": true,
+            "required": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "url": {
+            "type": "string"
+        },
+        "url_accessible": {
+            "type": "boolean"
+        }
+    }
+}

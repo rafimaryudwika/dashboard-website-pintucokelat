@@ -1,0 +1,22 @@
+{
+    "collectionName": "components_selfphotostudio_pricelistblocks",
+    "info": {
+        "displayName": "PricelistBlock",
+        "icon": "landscape"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "Pricelists": {
+            "displayName": "PricelistCard",
+            "type": "component",
+            "repeatable": true,
+            "component": "self-photo-studio.pricelist-card"
+        },
+        "catatan": {
+            "type": "string"
+        }
+    }
+}
