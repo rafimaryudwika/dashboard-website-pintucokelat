@@ -1,0 +1,75 @@
+{
+    "kind": "singleType",
+    "collectionName": "photo_booths",
+    "info": {
+        "singularName": "photo-booth",
+        "pluralName": "photo-booths",
+        "displayName": "Photo Booth"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "SEO": {
+            "type": "component",
+            "repeatable": true,
+            "component": "shared.seo"
+        },
+        "logo_photobooth": {
+            "allowedTypes": [
+                "images"
+            ],
+            "type": "media",
+            "multiple": false,
+            "required": false
+        },
+        "photobooth_gallery": {
+            "allowedTypes": [
+                "images"
+            ],
+            "type": "media",
+            "multiple": true,
+            "required": true
+        },
+        "FirstParagraphTitle": {
+            "type": "string"
+        },
+        "FirstParagraphDesc": {
+            "type": "text"
+        },
+        "SecondParagraphTitle": {
+            "type": "string"
+        },
+        "SecondParagraphDesc": {
+            "type": "text"
+        },
+        "SecondParagraphImg": {
+            "allowedTypes": [
+                "images"
+            ],
+            "type": "media",
+            "multiple": false,
+            "required": true
+        },
+        "AnatomyTitle": {
+            "type": "string"
+        },
+        "AnatomyImg": {
+            "allowedTypes": [
+                "images"
+            ],
+            "type": "media",
+            "multiple": false,
+            "required": true
+        },
+        "CallToAction": {
+            "type": "component",
+            "repeatable": false,
+            "component": "shared.call-to-action"
+        }
+    }
+}

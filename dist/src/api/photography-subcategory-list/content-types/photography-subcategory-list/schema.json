@@ -1,0 +1,39 @@
+{
+    "kind": "collectionType",
+    "collectionName": "photography_subcategory",
+    "info": {
+        "singularName": "photography-subcategory-list",
+        "pluralName": "photography-subcategory-lists",
+        "displayName": "Photography Subcategory",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "SubcategoryName": {
+            "type": "string",
+            "required": true,
+            "unique": true
+        },
+        "Type": {
+            "type": "enumeration",
+            "enum": [
+                "Couple Sessions",
+                "Foto Group",
+                "Wisuda",
+                "Fashion",
+                "Maternity",
+                "Foto Profil",
+                "Dokumentasi"
+            ]
+        },
+        "photography_client_lists": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::photography-client-list.photography-client-list",
+            "mappedBy": "photography_subcategory"
+        }
+    }
+}

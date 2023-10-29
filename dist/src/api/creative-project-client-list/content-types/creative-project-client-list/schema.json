@@ -1,0 +1,53 @@
+{
+    "kind": "collectionType",
+    "collectionName": "creative_project_client_lists",
+    "info": {
+        "singularName": "creative-project-client-list",
+        "pluralName": "creative-project-client-lists",
+        "displayName": "Creative Project Client Lists",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "nama_klien": {
+            "type": "string"
+        },
+        "foto_utama": {
+            "type": "media",
+            "multiple": false,
+            "required": true,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "slug": {
+            "type": "uid",
+            "targetField": "nama_klien"
+        },
+        "tipe": {
+            "type": "enumeration",
+            "enum": [
+                "Couple Sessions",
+                "Foto Group",
+                "Wisuda",
+                "Fashion",
+                "Maternity",
+                "Foto Profil",
+                "Dokumentasi"
+            ]
+        },
+        "DynamicGallery": {
+            "type": "dynamiczone",
+            "components": [
+                "gallery.four-photos",
+                "gallery.single-photo",
+                "gallery.text-description",
+                "gallery.three-photos",
+                "gallery.two-photos"
+            ]
+        }
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "kind": "singleType",
+    "collectionName": "self_photo_studios",
+    "info": {
+        "singularName": "self-photo-studio",
+        "pluralName": "self-photo-studios",
+        "displayName": "Self-Photo Studio",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "Alert": {
+            "type": "component",
+            "repeatable": false,
+            "component": "global-components.test"
+        },
+        "PriceLists": {
+            "type": "component",
+            "repeatable": false,
+            "component": "self-photo-studio.pricelist-block"
+        },
+        "ColorChoices": {
+            "type": "component",
+            "repeatable": false,
+            "component": "self-photo-studio.color-choices-block"
+        },
+        "CallToAction": {
+            "type": "component",
+            "repeatable": false,
+            "component": "self-photo-studio.self-photo-cta"
+        },
+        "Header": {
+            "type": "component",
+            "repeatable": false,
+            "component": "self-photo-studio.self-photo-header"
+        }
+    }
+}
