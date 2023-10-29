@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_fotografi_klien",
+  "info": {
+    "displayName": "KlienFotografi"
+  },
+  "options": {},
+  "attributes": {
+    "nama_klien": {
+      "type": "string"
+    },
+    "foto_utama": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

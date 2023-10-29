@@ -677,6 +677,38 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAboutUsAboutUs extends Schema.SingleType {
+  collectionName: 'about_uses';
+  info: {
+    singularName: 'about-us';
+    pluralName: 'about-uses';
+    displayName: 'About Us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Paragraphs: Attribute.DynamicZone<
+      ['shared.desc-with-pic', 'about-us.members']
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::about-us.about-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::about-us.about-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCreativeProjectCreativeProject extends Schema.SingleType {
   collectionName: 'creative_projects';
   info: {
@@ -711,6 +743,63 @@ export interface ApiCreativeProjectCreativeProject extends Schema.SingleType {
   };
 }
 
+export interface ApiCreativeProjectClientListCreativeProjectClientList
+  extends Schema.CollectionType {
+  collectionName: 'creative_project_client_lists';
+  info: {
+    singularName: 'creative-project-client-list';
+    pluralName: 'creative-project-client-lists';
+    displayName: 'Creative Project Client Lists';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    nama_klien: Attribute.String;
+    foto_utama: Attribute.Media & Attribute.Required;
+    slug: Attribute.UID<
+      'api::creative-project-client-list.creative-project-client-list',
+      'nama_klien'
+    >;
+    tipe: Attribute.Enumeration<
+      [
+        'Couple Sessions',
+        'Foto Group',
+        'Wisuda',
+        'Fashion',
+        'Maternity',
+        'Foto Profil',
+        'Dokumentasi'
+      ]
+    >;
+    DynamicGallery: Attribute.DynamicZone<
+      [
+        'gallery.four-photos',
+        'gallery.single-photo',
+        'gallery.text-description',
+        'gallery.three-photos',
+        'gallery.two-photos'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::creative-project-client-list.creative-project-client-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::creative-project-client-list.creative-project-client-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHomePageHomePage extends Schema.SingleType {
   collectionName: 'home_pages';
   info: {
@@ -728,6 +817,10 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     OurClient: Attribute.Component<'homepage-components.our-clients-block'>;
     AlertBar: Attribute.Component<'global-components.test'>;
     Welcome: Attribute.Component<'homepage-components.welcome-block'>;
+    ServiceLists: Attribute.Component<
+      'homepage-components.services-list',
+      true
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -739,6 +832,175 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMenuMenu extends Schema.CollectionType {
+  collectionName: 'menus';
+  info: {
+    singularName: 'menu';
+    pluralName: 'menus';
+    displayName: 'Menu';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    url: Attribute.String;
+    enabled: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::menu.menu', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::menu.menu', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPhPortofolioPhPortofolio extends Schema.CollectionType {
+  collectionName: 'ph_portofolios';
+  info: {
+    singularName: 'ph-portofolio';
+    pluralName: 'ph-portofolios';
+    displayName: 'PH Portofolio';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    Description: Attribute.Text;
+    URL: Attribute.String;
+    type: Attribute.Enumeration<
+      [
+        'Content',
+        'Short Film',
+        'Event Documentation',
+        'Documentary Film',
+        'Music Video',
+        'Commercial Video'
+      ]
+    >;
+    thumbnail: Attribute.Media & Attribute.Required;
+    media: Attribute.Media;
+    isUploadedFile: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::ph-portofolio.ph-portofolio',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::ph-portofolio.ph-portofolio',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPhQuoteListPhQuoteList extends Schema.CollectionType {
+  collectionName: 'ph_quote_lists';
+  info: {
+    singularName: 'ph-quote-list';
+    pluralName: 'ph-quote-lists';
+    displayName: 'PH Quote Lists';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    project_title: Attribute.String & Attribute.Required;
+    project_type: Attribute.Enumeration<
+      [
+        'Content',
+        'Short Film',
+        'Event Documentation',
+        'Documentary Film',
+        'Music Video',
+        'Commercial Video'
+      ]
+    >;
+    estimated_budget: Attribute.Enumeration<
+      [
+        '< IDR 5.000.000',
+        'IDR 5.000.000 - 10.000.000',
+        'IDR 10.000.000 - 100.000.000',
+        'IDR 100.000.000 - 500.000.000',
+        '> IDR 500.000.000'
+      ]
+    >;
+    reference: Attribute.String;
+    project_description: Attribute.Text;
+    first_name: Attribute.String;
+    last_name: Attribute.String;
+    organization_name: Attribute.String;
+    email: Attribute.String;
+    phone_number: Attribute.BigInteger;
+    brief: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::ph-quote-list.ph-quote-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::ph-quote-list.ph-quote-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPhotoBoothPhotoBooth extends Schema.SingleType {
+  collectionName: 'photo_booths';
+  info: {
+    singularName: 'photo-booth';
+    pluralName: 'photo-booths';
+    displayName: 'Photo Booth';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    SEO: Attribute.Component<'shared.seo', true>;
+    logo_photobooth: Attribute.Media;
+    photobooth_gallery: Attribute.Media & Attribute.Required;
+    FirstParagraphTitle: Attribute.String;
+    FirstParagraphDesc: Attribute.Text;
+    SecondParagraphTitle: Attribute.String;
+    SecondParagraphDesc: Attribute.Text;
+    SecondParagraphImg: Attribute.Media & Attribute.Required;
+    AnatomyTitle: Attribute.String;
+    AnatomyImg: Attribute.Media & Attribute.Required;
+    CallToAction: Attribute.Component<'shared.call-to-action'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::photo-booth.photo-booth',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::photo-booth.photo-booth',
       'oneToOne',
       'admin::user'
     > &
@@ -779,6 +1041,98 @@ export interface ApiPhotographyPhotography extends Schema.SingleType {
   };
 }
 
+export interface ApiPhotographyClientListPhotographyClientList
+  extends Schema.CollectionType {
+  collectionName: 'photography_clients';
+  info: {
+    singularName: 'photography-client-list';
+    pluralName: 'photography-client-lists';
+    displayName: 'Photography Client List';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    nama_klien: Attribute.String & Attribute.Required;
+    foto_utama: Attribute.Media & Attribute.Required;
+    slug: Attribute.UID<
+      'api::photography-client-list.photography-client-list',
+      'nama_klien'
+    > &
+      Attribute.Required;
+    gallery: Attribute.Media & Attribute.Required;
+    photography_subcategory: Attribute.Relation<
+      'api::photography-client-list.photography-client-list',
+      'manyToOne',
+      'api::photography-subcategory-list.photography-subcategory-list'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::photography-client-list.photography-client-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::photography-client-list.photography-client-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPhotographySubcategoryListPhotographySubcategoryList
+  extends Schema.CollectionType {
+  collectionName: 'photography_subcategory';
+  info: {
+    singularName: 'photography-subcategory-list';
+    pluralName: 'photography-subcategory-lists';
+    displayName: 'Photography Subcategory';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    SubcategoryName: Attribute.String & Attribute.Required & Attribute.Unique;
+    Type: Attribute.Enumeration<
+      [
+        'Couple Sessions',
+        'Foto Group',
+        'Wisuda',
+        'Fashion',
+        'Maternity',
+        'Foto Profil',
+        'Dokumentasi'
+      ]
+    >;
+    photography_client_lists: Attribute.Relation<
+      'api::photography-subcategory-list.photography-subcategory-list',
+      'oneToMany',
+      'api::photography-client-list.photography-client-list'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::photography-subcategory-list.photography-subcategory-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::photography-subcategory-list.photography-subcategory-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPreweddingWeddingPreweddingWedding
   extends Schema.CollectionType {
   collectionName: 'prewedding_weddings';
@@ -795,12 +1149,20 @@ export interface ApiPreweddingWeddingPreweddingWedding
     nama_klien: Attribute.String;
     foto_utama: Attribute.Media;
     deskripsi: Attribute.Text;
-    gallery: Attribute.Media;
     modal: Attribute.UID<
       'api::prewedding-wedding.prewedding-wedding',
       'nama_klien'
     >;
     tipe: Attribute.Enumeration<['Engagement', 'Pre-Wedding', 'Wedding']>;
+    DynamicGalleryGrids: Attribute.DynamicZone<
+      [
+        'gallery.four-photos',
+        'gallery.single-photo',
+        'gallery.two-photos',
+        'gallery.three-photos',
+        'gallery.text-description'
+      ]
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -980,9 +1342,17 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::creative-project.creative-project': ApiCreativeProjectCreativeProject;
+      'api::creative-project-client-list.creative-project-client-list': ApiCreativeProjectClientListCreativeProjectClientList;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::menu.menu': ApiMenuMenu;
+      'api::ph-portofolio.ph-portofolio': ApiPhPortofolioPhPortofolio;
+      'api::ph-quote-list.ph-quote-list': ApiPhQuoteListPhQuoteList;
+      'api::photo-booth.photo-booth': ApiPhotoBoothPhotoBooth;
       'api::photography.photography': ApiPhotographyPhotography;
+      'api::photography-client-list.photography-client-list': ApiPhotographyClientListPhotographyClientList;
+      'api::photography-subcategory-list.photography-subcategory-list': ApiPhotographySubcategoryListPhotographySubcategoryList;
       'api::prewedding-wedding.prewedding-wedding': ApiPreweddingWeddingPreweddingWedding;
       'api::production-house.production-house': ApiProductionHouseProductionHouse;
       'api::promotion.promotion': ApiPromotionPromotion;

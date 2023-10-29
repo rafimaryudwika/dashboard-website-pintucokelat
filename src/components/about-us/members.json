@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_about_us_members",
+  "info": {
+    "displayName": "Members"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "MemberList": {
+      "displayName": "MemberComponent",
+      "type": "component",
+      "repeatable": true,
+      "component": "about-us.member-component"
+    }
+  }
+}

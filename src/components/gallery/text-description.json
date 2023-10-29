@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_gallery_text_descriptions",
+  "info": {
+    "displayName": "TextDescription"
+  },
+  "options": {},
+  "attributes": {
+    "Description": {
+      "type": "text"
+    }
+  }
+}

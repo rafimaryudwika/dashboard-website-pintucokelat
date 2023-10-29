@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_desc_with_pics",
+  "info": {
+    "displayName": "DescWithPic"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

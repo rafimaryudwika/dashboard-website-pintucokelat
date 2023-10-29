@@ -1,5 +1,39 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface AboutUsMemberComponent extends Schema.Component {
+  collectionName: 'components_about_us_member_components';
+  info: {
+    displayName: 'MemberComponent';
+  };
+  attributes: {
+    name: Attribute.String;
+    role: Attribute.String;
+    photo: Attribute.Media;
+  };
+}
+
+export interface AboutUsMembers extends Schema.Component {
+  collectionName: 'components_about_us_members';
+  info: {
+    displayName: 'Members';
+  };
+  attributes: {
+    title: Attribute.String;
+    MemberList: Attribute.Component<'about-us.member-component', true>;
+  };
+}
+
+export interface FotografiKlienFotografi extends Schema.Component {
+  collectionName: 'components_fotografi_klien';
+  info: {
+    displayName: 'KlienFotografi';
+  };
+  attributes: {
+    nama_klien: Attribute.String;
+    foto_utama: Attribute.Media & Attribute.Required;
+  };
+}
+
 export interface GalleryFourPhotos extends Schema.Component {
   collectionName: 'components_gallery_four_photos';
   info: {
@@ -38,6 +72,16 @@ export interface GallerySinglePhoto extends Schema.Component {
   };
   attributes: {
     Photo: Attribute.Media & Attribute.Required;
+  };
+}
+
+export interface GalleryTextDescription extends Schema.Component {
+  collectionName: 'components_gallery_text_descriptions';
+  info: {
+    displayName: 'TextDescription';
+  };
+  attributes: {
+    Description: Attribute.Text;
   };
 }
 
@@ -154,6 +198,22 @@ export interface HomepageComponentsProductLists extends Schema.Component {
   };
 }
 
+export interface HomepageComponentsServicesList extends Schema.Component {
+  collectionName: 'components_homepage_components_services_lists';
+  info: {
+    displayName: 'ServicesList';
+    description: '';
+  };
+  attributes: {
+    service_name: Attribute.String & Attribute.Required & Attribute.Unique;
+    tagline: Attribute.String;
+    main_photo: Attribute.Media & Attribute.Required;
+    shuffledPhotos: Attribute.Media;
+    url: Attribute.String;
+    url_accessible: Attribute.Boolean;
+  };
+}
+
 export interface HomepageComponentsWelcomeBlock extends Schema.Component {
   collectionName: 'components_homepage_welcome_blocks';
   info: {
@@ -264,6 +324,18 @@ export interface SharedCallToAction extends Schema.Component {
   };
 }
 
+export interface SharedDescWithPic extends Schema.Component {
+  collectionName: 'components_shared_desc_with_pics';
+  info: {
+    displayName: 'DescWithPic';
+  };
+  attributes: {
+    title: Attribute.String;
+    image: Attribute.Media;
+    description: Attribute.Text;
+  };
+}
+
 export interface SharedMetaSocial extends Schema.Component {
   collectionName: 'components_shared_meta_socials';
   info: {
@@ -318,9 +390,13 @@ export interface SharedSeo extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'about-us.member-component': AboutUsMemberComponent;
+      'about-us.members': AboutUsMembers;
+      'fotografi.klien-fotografi': FotografiKlienFotografi;
       'gallery.four-photos': GalleryFourPhotos;
       'gallery.photos-block': GalleryPhotosBlock;
       'gallery.single-photo': GallerySinglePhoto;
+      'gallery.text-description': GalleryTextDescription;
       'gallery.three-photos': GalleryThreePhotos;
       'gallery.two-photos': GalleryTwoPhotos;
       'global-components.carousel': GlobalComponentsCarousel;
@@ -329,6 +405,7 @@ declare module '@strapi/types' {
       'homepage-components.our-clients-block': HomepageComponentsOurClientsBlock;
       'homepage-components.our-products-block': HomepageComponentsOurProductsBlock;
       'homepage-components.product-lists': HomepageComponentsProductLists;
+      'homepage-components.services-list': HomepageComponentsServicesList;
       'homepage-components.welcome-block': HomepageComponentsWelcomeBlock;
       'self-photo-studio.color-card': SelfPhotoStudioColorCard;
       'self-photo-studio.color-choices-block': SelfPhotoStudioColorChoicesBlock;
@@ -337,6 +414,7 @@ declare module '@strapi/types' {
       'self-photo-studio.self-photo-cta': SelfPhotoStudioSelfPhotoCta;
       'self-photo-studio.self-photo-header': SelfPhotoStudioSelfPhotoHeader;
       'shared.call-to-action': SharedCallToAction;
+      'shared.desc-with-pic': SharedDescWithPic;
       'shared.meta-social': SharedMetaSocial;
       'shared.seo': SharedSeo;
     }

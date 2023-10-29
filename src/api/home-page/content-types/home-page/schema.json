@@ -32,6 +32,12 @@
       "type": "component",
       "repeatable": false,
       "component": "homepage-components.welcome-block"
+    },
+    "ServiceLists": {
+      "displayName": "ServicesList",
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage-components.services-list"
     }
   }
 }
