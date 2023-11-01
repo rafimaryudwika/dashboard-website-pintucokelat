@@ -71,7 +71,7 @@ export interface GallerySinglePhoto extends Schema.Component {
     description: '';
   };
   attributes: {
-    Photo: Attribute.Media & Attribute.Required;
+    Photo1: Attribute.Media & Attribute.Required;
   };
 }
 

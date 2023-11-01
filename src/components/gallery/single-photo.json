@@ -7,7 +7,7 @@
   },
   "options": {},
   "attributes": {
-    "Photo": {
+    "Photo1": {
       "type": "media",
       "multiple": false,
       "required": true,
