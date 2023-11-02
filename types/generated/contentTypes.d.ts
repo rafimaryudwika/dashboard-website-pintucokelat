@@ -1157,10 +1157,10 @@ export interface ApiPreweddingWeddingPreweddingWedding
     DynamicGalleryGrids: Attribute.DynamicZone<
       [
         'gallery.four-photos',
-        'gallery.single-photo',
         'gallery.two-photos',
         'gallery.three-photos',
-        'gallery.text-description'
+        'gallery.text-description',
+        'gallery.single-photo'
       ]
     >;
     createdAt: Attribute.DateTime;

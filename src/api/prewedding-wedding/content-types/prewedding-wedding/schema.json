@@ -45,10 +45,10 @@
       "type": "dynamiczone",
       "components": [
         "gallery.four-photos",
-        "gallery.single-photo",
         "gallery.two-photos",
         "gallery.three-photos",
-        "gallery.text-description"
+        "gallery.text-description",
+        "gallery.single-photo"
       ]
     }
   }
