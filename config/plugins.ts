@@ -6,7 +6,7 @@ export default ({ env }) => ({
     "image-optimizer": {
       enabled: true,
       config: {
-        include: ["jpeg", "jpg", "png"],
+        include: ["jpeg", "jpg", "png", "heif"],
         exclude: ["gif"],
         formats: ["original", "webp", "avif"],
         sizes: [
@@ -43,6 +43,8 @@ export default ({ env }) => ({
           {
             // Uses original size but still transforms for formats
             name: "original",
+            width: 3840,
+            withoutEnlargement: true,
           },
         ],
         additionalResolutions: [1.5, 2, 3],
