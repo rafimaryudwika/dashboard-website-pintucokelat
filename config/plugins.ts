@@ -8,7 +8,7 @@ export default ({ env }) => ({
       config: {
         include: ["jpeg", "jpg", "png", "heif"],
         exclude: ["gif"],
-        formats: ["original" , "webp"],
+        formats: ["original", "webp"],
         sizes: [
           {
             name: "128",
@@ -56,12 +56,34 @@ export default ({ env }) => ({
             withoutEnlargement: true,
           },
           {
+            name: "2048",
+            width: 2048,
+            withoutEnlargement: true,
+          },
+          {
+            name: "2560",
+            width: 2560,
+            // Won't create an image larger than the original size
+            withoutEnlargement: true,
+          },
+          {
+            name: "3072",
+            width: 3072,
+            // Won't create an image larger than the original size
+            withoutEnlargement: true,
+          },
+          {
+            // Uses original size but still transforms for formats
+            name: "3840",
+            width: 3840,
+            withoutEnlargement: true,
+          },
+          {
             name: "original",
             withoutEnlargement: true,
           },
         ],
         quality: 70,
-        additionalResolutions: [1.5, 2]
       } satisfies ImageOptimizerConfig,
     },
     // ...
