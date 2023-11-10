@@ -8,47 +8,59 @@ export default ({ env }) => ({
       config: {
         include: ["jpeg", "jpg", "png", "heif"],
         exclude: ["gif"],
-        formats: ["original", "webp", "avif"],
+        formats: ["original" , "webp"],
         sizes: [
           {
-            name: "xs",
-            width: 320,
+            name: "128",
+            width: 128,
+            withoutEnlargement: true,
           },
           {
-            name: "sm",
-            width: 360,
+            name: "240",
+            width: 240,
+            withoutEnlargement: true,
           },
           {
-            name: "md",
+            name: "480",
+            width: 480,
+            withoutEnlargement: true,
+          },
+          {
+            name: "640",
+            width: 640,
+            withoutEnlargement: true,
+          },
+          {
+            name: "768",
             width: 768,
+            withoutEnlargement: true,
           },
           {
-            name: "lg",
+            name: "1024",
             width: 1024,
+            withoutEnlargement: true,
           },
           {
-            name: "xl",
+            name: "1280",
             width: 1280,
+            withoutEnlargement: true,
           },
           {
-            name: "2xl",
+            name: "1536",
             width: 1536,
+            withoutEnlargement: true,
           },
           {
-            name: "3xl",
+            name: "1920",
             width: 1920,
-            // Won't create an image larger than the original size
             withoutEnlargement: true,
           },
           {
-            // Uses original size but still transforms for formats
-            name: "original",
-            width: 3840,
-            withoutEnlargement: true,
+            name: "original"
           },
         ],
-        additionalResolutions: [1.5, 2, 3],
         quality: 70,
+        additionalResolutions: [1.5, 2]
       } satisfies ImageOptimizerConfig,
     },
     // ...
