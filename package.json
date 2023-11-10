@@ -11,14 +11,14 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-i18n": "4.15.0",
-    "@strapi/plugin-seo": "^1.9.5",
-    "@strapi/plugin-users-permissions": "4.15.0",
-    "@strapi/strapi": "4.15.0",
+    "@strapi/strapi": "4.14.3",
+    "@strapi/plugin-users-permissions": "4.14.3",
+    "@strapi/plugin-i18n": "4.14.3",
     "@strapi/utils": "4.14.3",
+    "strapi-plugin-image-optimizer": "^2.1.1",
+    "@strapi/plugin-seo": "^1.9.5",
     "custom-slug": "^2.1.1",
-    "mysql": "2.18.1",
-    "strapi-plugin-image-optimizer": "^2.1.1"
+    "mysql": "2.18.1"
   },
   "author": {
     "name": "A Strapi developer"
