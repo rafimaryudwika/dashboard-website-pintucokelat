@@ -56,7 +56,8 @@ export default ({ env }) => ({
             withoutEnlargement: true,
           },
           {
-            name: "original"
+            name: "original",
+            withoutEnlargement: true,
           },
         ],
         quality: 70,
