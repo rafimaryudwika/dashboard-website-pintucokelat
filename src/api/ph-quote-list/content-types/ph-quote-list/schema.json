@@ -4,7 +4,7 @@
   "info": {
     "singularName": "ph-quote-list",
     "pluralName": "ph-quote-lists",
-    "displayName": "PH Quote Lists",
+    "displayName": "4B. PH Quote Lists",
     "description": ""
   },
   "options": {
@@ -12,11 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "project_title": {
+    "ProjectTitle": {
       "type": "string",
       "required": true
     },
-    "project_type": {
+    "ProjectType": {
       "type": "enumeration",
       "enum": [
         "Content",
@@ -27,7 +27,7 @@
         "Commercial Video"
       ]
     },
-    "estimated_budget": {
+    "EstimatedBudget": {
       "type": "enumeration",
       "enum": [
         "< IDR 5.000.000",
@@ -37,34 +37,34 @@
         "> IDR 500.000.000"
       ]
     },
-    "reference": {
+    "Reference": {
       "type": "string"
     },
-    "project_description": {
+    "ProjectDescription": {
       "type": "text"
     },
-    "first_name": {
+    "FirstName": {
       "type": "string"
     },
-    "last_name": {
+    "LastName": {
       "type": "string"
     },
-    "organization_name": {
+    "OrganizationName": {
       "type": "string"
     },
-    "email": {
+    "Email": {
       "type": "string"
     },
-    "phone_number": {
+    "PhoneNumber": {
       "type": "biginteger"
     },
-    "brief": {
-      "allowedTypes": [
-        "files"
-      ],
+    "Brief": {
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
     }
   }
 }

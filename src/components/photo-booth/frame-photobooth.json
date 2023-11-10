@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_photo_booth_frame_photobooths",
+  "info": {
+    "displayName": "FramePhotobooth"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "FrameChoices": {
+      "displayName": "FrameChoice",
+      "type": "component",
+      "repeatable": true,
+      "component": "photo-booth.frame-choice"
+    },
+    "Notes": {
+      "type": "richtext"
+    }
+  }
+}

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "photography-subcategory-list",
     "pluralName": "photography-subcategory-lists",
-    "displayName": "Photography Subcategory",
+    "displayName": "3A. Photography Subcategory",
     "description": ""
   },
   "options": {
@@ -29,11 +29,11 @@
         "Dokumentasi"
       ]
     },
-    "photography_client_lists": {
+    "PhotographyClientLists": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::photography-client-list.photography-client-list",
-      "mappedBy": "photography_subcategory"
+      "mappedBy": "PhotographySubCategory"
     }
   }
 }

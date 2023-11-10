@@ -1,0 +1,90 @@
+{
+  "kind": "singleType",
+  "collectionName": "main_layouts",
+  "info": {
+    "singularName": "main-layout",
+    "pluralName": "main-layouts",
+    "displayName": "1. Main Layout",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "FavIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Menu": {
+      "displayName": "Menu",
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.menu"
+    },
+    "SocialMedia": {
+      "displayName": "Social Media",
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.social-media"
+    },
+    "SocialMediaCTA": {
+      "type": "string"
+    },
+    "MenuTitle": {
+      "type": "string"
+    },
+    "QNATitle": {
+      "type": "string"
+    },
+    "Question": {
+      "displayName": "QNA",
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.qna"
+    },
+    "AdditionalMenu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.menu"
+    },
+    "Location": {
+      "displayName": "LocationAndContact",
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.location-and-contact"
+    },
+    "AdditionalMenuTitle": {
+      "type": "string"
+    },
+    "LocationTitle": {
+      "type": "string"
+    },
+    "AltLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Copyright": {
+      "type": "string"
+    },
+    "AdditionalInfo": {
+      "type": "richtext"
+    }
+  }
+}

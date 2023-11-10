@@ -1,11 +1,12 @@
 {
   "collectionName": "components_about_us_members",
   "info": {
-    "displayName": "Members"
+    "displayName": "Members",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
+    "Title": {
       "type": "string"
     },
     "MemberList": {

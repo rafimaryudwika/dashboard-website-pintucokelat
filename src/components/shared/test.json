@@ -7,25 +7,25 @@
   },
   "options": {},
   "attributes": {
-    "name": {
+    "Title": {
       "type": "string"
     },
-    "clickable_text": {
+    "ClickableText": {
       "type": "string"
     },
-    "clickable_url": {
+    "ClickableURL": {
       "type": "string"
     },
-    "type": {
+    "Type": {
       "type": "enumeration",
       "enum": [
-        "promotion",
-        "announcement",
-        "flash_deal",
-        "important"
+        "Promotion",
+        "Announcement",
+        "FlashDeal",
+        "Important"
       ]
     },
-    "enable": {
+    "Enable": {
       "type": "boolean"
     }
   }

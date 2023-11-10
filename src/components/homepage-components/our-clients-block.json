@@ -2,11 +2,12 @@
   "collectionName": "components_homepage_our_clients_blocks",
   "info": {
     "displayName": "Our Clients Block",
-    "icon": "bulletList"
+    "icon": "bulletList",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
+    "Title": {
       "type": "string"
     },
     "Lists": {

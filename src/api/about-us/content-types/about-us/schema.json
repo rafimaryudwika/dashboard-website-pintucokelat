@@ -4,7 +4,8 @@
   "info": {
     "singularName": "about-us",
     "pluralName": "about-uses",
-    "displayName": "About Us"
+    "displayName": "3. About Us",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,6 +18,14 @@
         "shared.desc-with-pic",
         "about-us.members"
       ]
+    },
+    "Title": {
+      "type": "string"
+    },
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
     }
   }
 }

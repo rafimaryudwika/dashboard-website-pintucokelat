@@ -4,11 +4,12 @@ export interface AboutUsMemberComponent extends Schema.Component {
   collectionName: 'components_about_us_member_components';
   info: {
     displayName: 'MemberComponent';
+    description: '';
   };
   attributes: {
-    name: Attribute.String;
-    role: Attribute.String;
-    photo: Attribute.Media;
+    Name: Attribute.String;
+    Role: Attribute.String;
+    Photo: Attribute.Media;
   };
 }
 
@@ -16,9 +17,10 @@ export interface AboutUsMembers extends Schema.Component {
   collectionName: 'components_about_us_members';
   info: {
     displayName: 'Members';
+    description: '';
   };
   attributes: {
-    title: Attribute.String;
+    Title: Attribute.String;
     MemberList: Attribute.Component<'about-us.member-component', true>;
   };
 }
@@ -79,9 +81,12 @@ export interface GalleryTextDescription extends Schema.Component {
   collectionName: 'components_gallery_text_descriptions';
   info: {
     displayName: 'TextDescription';
+    description: '';
   };
   attributes: {
     Description: Attribute.Text;
+    RichDescription: Attribute.RichText;
+    EnableRichDescription: Attribute.Boolean;
   };
 }
 
@@ -112,37 +117,6 @@ export interface GalleryTwoPhotos extends Schema.Component {
   };
 }
 
-export interface GlobalComponentsCarousel extends Schema.Component {
-  collectionName: 'components_global_components_carousels';
-  info: {
-    displayName: 'Carousel';
-    icon: 'stack';
-    description: '';
-  };
-  attributes: {
-    images_landscape: Attribute.Media;
-    image_portrait: Attribute.Media & Attribute.Required;
-  };
-}
-
-export interface GlobalComponentsTest extends Schema.Component {
-  collectionName: 'components_test_tests';
-  info: {
-    displayName: 'AlertBar';
-    icon: 'bell';
-    description: '';
-  };
-  attributes: {
-    name: Attribute.String;
-    clickable_text: Attribute.String;
-    clickable_url: Attribute.String;
-    type: Attribute.Enumeration<
-      ['promotion', 'announcement', 'flash_deal', 'important']
-    >;
-    enable: Attribute.Boolean;
-  };
-}
-
 export interface HomepageComponentsOurClient extends Schema.Component {
   collectionName: 'components_homepage_our_clients';
   info: {
@@ -151,9 +125,9 @@ export interface HomepageComponentsOurClient extends Schema.Component {
     description: '';
   };
   attributes: {
-    nama: Attribute.String & Attribute.Required;
-    width: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<1>;
-    logo: Attribute.Media;
+    Name: Attribute.String & Attribute.Required;
+    Logo: Attribute.Media;
+    Width: Attribute.Enumeration<['Single', 'Double', 'Triple']>;
   };
 }
 
@@ -162,9 +136,10 @@ export interface HomepageComponentsOurClientsBlock extends Schema.Component {
   info: {
     displayName: 'Our Clients Block';
     icon: 'bulletList';
+    description: '';
   };
   attributes: {
-    title: Attribute.String;
+    Title: Attribute.String;
     Lists: Attribute.Component<'homepage-components.our-client', true>;
   };
 }
@@ -205,12 +180,12 @@ export interface HomepageComponentsServicesList extends Schema.Component {
     description: '';
   };
   attributes: {
-    service_name: Attribute.String & Attribute.Required & Attribute.Unique;
-    tagline: Attribute.String;
-    main_photo: Attribute.Media & Attribute.Required;
-    shuffledPhotos: Attribute.Media;
-    url: Attribute.String;
-    url_accessible: Attribute.Boolean;
+    ServiceName: Attribute.String & Attribute.Required & Attribute.Unique;
+    Tagline: Attribute.String;
+    DefaultPhoto: Attribute.Media & Attribute.Required;
+    ShuffledPhotos: Attribute.Media;
+    URL: Attribute.String;
+    Accessible: Attribute.Boolean;
   };
 }
 
@@ -219,11 +194,157 @@ export interface HomepageComponentsWelcomeBlock extends Schema.Component {
   info: {
     displayName: 'WelcomeBlock';
     icon: 'gate';
+    description: '';
   };
   attributes: {
-    title: Attribute.String;
-    tagline: Attribute.String;
-    hero_image: Attribute.Media;
+    Title: Attribute.String;
+    Tagline: Attribute.String;
+    DefaultImage: Attribute.Media;
+    Carousel: Attribute.Component<'shared.carousel-images', true>;
+    EnableCarousel: Attribute.Boolean;
+  };
+}
+
+export interface LayoutLocationAndContact extends Schema.Component {
+  collectionName: 'components_layout_location_and_contacts';
+  info: {
+    displayName: 'LocationAndContact';
+    description: '';
+  };
+  attributes: {
+    Address: Attribute.Text;
+    Email: Attribute.String;
+    PhoneNumber: Attribute.String;
+    AddressURL: Attribute.String;
+    ActualPhoneNumber: Attribute.BigInteger;
+  };
+}
+
+export interface LayoutMenu extends Schema.Component {
+  collectionName: 'components_layout_menus';
+  info: {
+    displayName: 'Menu';
+    icon: 'apps';
+    description: '';
+  };
+  attributes: {
+    Name: Attribute.String;
+    URL: Attribute.String;
+    Enabled: Attribute.Boolean;
+    Description: Attribute.String;
+  };
+}
+
+export interface LayoutQna extends Schema.Component {
+  collectionName: 'components_layout_qnas';
+  info: {
+    displayName: 'QNA';
+    icon: 'envelop';
+  };
+  attributes: {
+    ContactTitle: Attribute.String;
+    ContactType: Attribute.Enumeration<['WhatsApp', 'LINE', 'Instagram DM']>;
+    URL: Attribute.String;
+  };
+}
+
+export interface LayoutSocialMedia extends Schema.Component {
+  collectionName: 'components_layout_social_medias';
+  info: {
+    displayName: 'Social Media';
+    icon: 'earth';
+  };
+  attributes: {
+    SocialMedia: Attribute.Enumeration<
+      ['Facebook', 'X (Twitter)', 'Instagram', 'TikTok', 'YouTube']
+    >;
+    URL: Attribute.String;
+    Description: Attribute.String;
+    Enabled: Attribute.Boolean;
+  };
+}
+
+export interface PhotoBoothClientLists extends Schema.Component {
+  collectionName: 'components_photo_booth_client_lists';
+  info: {
+    displayName: 'ClientLists';
+  };
+  attributes: {
+    Photos: Attribute.Media;
+    Name: Attribute.String;
+  };
+}
+
+export interface PhotoBoothFrameChoice extends Schema.Component {
+  collectionName: 'components_photo_booth_frame_choices';
+  info: {
+    displayName: 'FrameChoice';
+    icon: 'picture';
+  };
+  attributes: {
+    FrameImage: Attribute.Media;
+    Name: Attribute.String;
+  };
+}
+
+export interface PhotoBoothFramePhotobooth extends Schema.Component {
+  collectionName: 'components_photo_booth_frame_photobooths';
+  info: {
+    displayName: 'FramePhotobooth';
+  };
+  attributes: {
+    Title: Attribute.String;
+    FrameChoices: Attribute.Component<'photo-booth.frame-choice', true>;
+    Notes: Attribute.RichText;
+  };
+}
+
+export interface PhotoBoothPhotoBoothCarousel extends Schema.Component {
+  collectionName: 'components_photo_booth_carousels';
+  info: {
+    displayName: 'PhotoBoothCarousel';
+    icon: 'picture';
+  };
+  attributes: {
+    Logo: Attribute.Media;
+    Images: Attribute.Component<'shared.carousel-images', true>;
+  };
+}
+
+export interface PhotoBoothTestimonial extends Schema.Component {
+  collectionName: 'components_photo_booth_testimonials';
+  info: {
+    displayName: 'Testimonial';
+  };
+  attributes: {
+    Title: Attribute.String;
+    ClientLists: Attribute.Component<'photo-booth.client-lists', true>;
+  };
+}
+
+export interface PhotoBoothWhatYouGotLists extends Schema.Component {
+  collectionName: 'components_photo_booth_what_you_got_lists';
+  info: {
+    displayName: 'WhatYouGotLists';
+    icon: 'filter';
+  };
+  attributes: {
+    Name: Attribute.Text;
+  };
+}
+
+export interface PhotoBoothWhatYouGot extends Schema.Component {
+  collectionName: 'components_photo_booth_what_you_gots';
+  info: {
+    displayName: 'WhatYouGot';
+    icon: 'bulletList';
+  };
+  attributes: {
+    Title: Attribute.String;
+    WhatYouGotLists: Attribute.Component<
+      'photo-booth.what-you-got-lists',
+      true
+    >;
   };
 }
 
@@ -232,10 +353,11 @@ export interface SelfPhotoStudioColorCard extends Schema.Component {
   info: {
     displayName: 'ColorCard';
     icon: 'paint';
+    description: '';
   };
   attributes: {
-    color: Attribute.String & Attribute.Required;
-    nama: Attribute.String & Attribute.Required;
+    Color: Attribute.String & Attribute.Required;
+    Name: Attribute.String & Attribute.Required;
   };
 }
 
@@ -244,9 +366,10 @@ export interface SelfPhotoStudioColorChoicesBlock extends Schema.Component {
   info: {
     displayName: 'ColorChoicesBlock';
     icon: 'chartBubble';
+    description: '';
   };
   attributes: {
-    heading: Attribute.String;
+    Heading: Attribute.String;
     ColorCard: Attribute.Component<'self-photo-studio.color-card', true>;
   };
 }
@@ -256,11 +379,12 @@ export interface SelfPhotoStudioPricelistBlock extends Schema.Component {
   info: {
     displayName: 'PricelistBlock';
     icon: 'landscape';
+    description: '';
   };
   attributes: {
-    title: Attribute.String;
+    Title: Attribute.String;
     Pricelists: Attribute.Component<'self-photo-studio.pricelist-card', true>;
-    catatan: Attribute.String;
+    Notes: Attribute.String;
   };
 }
 
@@ -324,15 +448,33 @@ export interface SharedCallToAction extends Schema.Component {
   };
 }
 
+export interface SharedCarouselImages extends Schema.Component {
+  collectionName: 'components_shared_carousel_images';
+  info: {
+    displayName: 'CarouselImages';
+    description: '';
+  };
+  attributes: {
+    PortraitImage: Attribute.Media;
+    LandscapeImage: Attribute.Media;
+    Description: Attribute.String;
+    EnableURL: Attribute.Boolean;
+    URL: Attribute.String;
+  };
+}
+
 export interface SharedDescWithPic extends Schema.Component {
   collectionName: 'components_shared_desc_with_pics';
   info: {
     displayName: 'DescWithPic';
+    description: '';
   };
   attributes: {
-    title: Attribute.String;
-    image: Attribute.Media;
-    description: Attribute.Text;
+    CarouselImages: Attribute.Media;
+    ImagePosition: Attribute.Enumeration<['Left', 'Right', 'Top']>;
+    EnableCarousel: Attribute.Boolean;
+    Description: Attribute.RichText;
+    DefaultImage: Attribute.Media;
   };
 }
 
@@ -356,6 +498,18 @@ export interface SharedMetaSocial extends Schema.Component {
         maxLength: 65;
       }>;
     image: Attribute.Media;
+  };
+}
+
+export interface SharedPicWithTitle extends Schema.Component {
+  collectionName: 'components_shared_pic_with_titles';
+  info: {
+    displayName: 'PicWithTitle';
+    icon: 'picture';
+  };
+  attributes: {
+    Title: Attribute.String;
+    DefaultPicture1: Attribute.Media;
   };
 }
 
@@ -387,6 +541,24 @@ export interface SharedSeo extends Schema.Component {
   };
 }
 
+export interface SharedTest extends Schema.Component {
+  collectionName: 'components_test_tests';
+  info: {
+    displayName: 'AlertBar';
+    icon: 'bell';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.String;
+    ClickableText: Attribute.String;
+    ClickableURL: Attribute.String;
+    Type: Attribute.Enumeration<
+      ['Promotion', 'Announcement', 'FlashDeal', 'Important']
+    >;
+    Enable: Attribute.Boolean;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -399,14 +571,23 @@ declare module '@strapi/types' {
       'gallery.text-description': GalleryTextDescription;
       'gallery.three-photos': GalleryThreePhotos;
       'gallery.two-photos': GalleryTwoPhotos;
-      'global-components.carousel': GlobalComponentsCarousel;
-      'global-components.test': GlobalComponentsTest;
       'homepage-components.our-client': HomepageComponentsOurClient;
       'homepage-components.our-clients-block': HomepageComponentsOurClientsBlock;
       'homepage-components.our-products-block': HomepageComponentsOurProductsBlock;
       'homepage-components.product-lists': HomepageComponentsProductLists;
       'homepage-components.services-list': HomepageComponentsServicesList;
       'homepage-components.welcome-block': HomepageComponentsWelcomeBlock;
+      'layout.location-and-contact': LayoutLocationAndContact;
+      'layout.menu': LayoutMenu;
+      'layout.qna': LayoutQna;
+      'layout.social-media': LayoutSocialMedia;
+      'photo-booth.client-lists': PhotoBoothClientLists;
+      'photo-booth.frame-choice': PhotoBoothFrameChoice;
+      'photo-booth.frame-photobooth': PhotoBoothFramePhotobooth;
+      'photo-booth.photo-booth-carousel': PhotoBoothPhotoBoothCarousel;
+      'photo-booth.testimonial': PhotoBoothTestimonial;
+      'photo-booth.what-you-got-lists': PhotoBoothWhatYouGotLists;
+      'photo-booth.what-you-got': PhotoBoothWhatYouGot;
       'self-photo-studio.color-card': SelfPhotoStudioColorCard;
       'self-photo-studio.color-choices-block': SelfPhotoStudioColorChoicesBlock;
       'self-photo-studio.pricelist-block': SelfPhotoStudioPricelistBlock;
@@ -414,9 +595,12 @@ declare module '@strapi/types' {
       'self-photo-studio.self-photo-cta': SelfPhotoStudioSelfPhotoCta;
       'self-photo-studio.self-photo-header': SelfPhotoStudioSelfPhotoHeader;
       'shared.call-to-action': SharedCallToAction;
+      'shared.carousel-images': SharedCarouselImages;
       'shared.desc-with-pic': SharedDescWithPic;
       'shared.meta-social': SharedMetaSocial;
+      'shared.pic-with-title': SharedPicWithTitle;
       'shared.seo': SharedSeo;
+      'shared.test': SharedTest;
     }
   }
 }

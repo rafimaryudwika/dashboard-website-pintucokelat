@@ -6,15 +6,15 @@
   },
   "options": {},
   "attributes": {
-    "service_name": {
+    "ServiceName": {
       "type": "string",
       "required": true,
       "unique": true
     },
-    "tagline": {
+    "Tagline": {
       "type": "string"
     },
-    "main_photo": {
+    "DefaultPhoto": {
       "type": "media",
       "multiple": false,
       "required": true,
@@ -22,7 +22,7 @@
         "images"
       ]
     },
-    "shuffledPhotos": {
+    "ShuffledPhotos": {
       "type": "media",
       "multiple": true,
       "required": false,
@@ -30,10 +30,10 @@
         "images"
       ]
     },
-    "url": {
+    "URL": {
       "type": "string"
     },
-    "url_accessible": {
+    "Accessible": {
       "type": "boolean"
     }
   }

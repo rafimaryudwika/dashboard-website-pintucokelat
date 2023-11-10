@@ -1,22 +1,24 @@
 {
   "collectionName": "components_about_us_member_components",
   "info": {
-    "displayName": "MemberComponent"
+    "displayName": "MemberComponent",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "name": {
+    "Name": {
       "type": "string"
     },
-    "role": {
+    "Role": {
       "type": "string"
     },
-    "photo": {
+    "Photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }

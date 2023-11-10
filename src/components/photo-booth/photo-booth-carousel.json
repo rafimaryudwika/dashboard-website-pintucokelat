@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_photo_booth_carousels",
+  "info": {
+    "displayName": "PhotoBoothCarousel",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "Logo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "Images": {
+      "displayName": "CarouselImages",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.carousel-images"
+    }
+  }
+}

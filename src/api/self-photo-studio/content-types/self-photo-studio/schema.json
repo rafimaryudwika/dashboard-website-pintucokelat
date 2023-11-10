@@ -4,7 +4,7 @@
   "info": {
     "singularName": "self-photo-studio",
     "pluralName": "self-photo-studios",
-    "displayName": "Self-Photo Studio",
+    "displayName": "4. Self-Photo Studio",
     "description": ""
   },
   "options": {
@@ -12,13 +12,13 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "Title": {
       "type": "string"
     },
-    "Alert": {
+    "AlertBar": {
       "type": "component",
       "repeatable": false,
-      "component": "global-components.test"
+      "component": "shared.test"
     },
     "PriceLists": {
       "type": "component",
@@ -39,6 +39,18 @@
       "type": "component",
       "repeatable": false,
       "component": "self-photo-studio.self-photo-header"
+    },
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "DynamicZone": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.pic-with-title",
+        "shared.desc-with-pic"
+      ]
     }
   }
 }

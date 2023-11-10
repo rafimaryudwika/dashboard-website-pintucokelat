@@ -4,7 +4,7 @@
   "info": {
     "singularName": "ph-portofolio",
     "pluralName": "ph-portofolios",
-    "displayName": "PH Portofolio",
+    "displayName": "4A. PH Portofolio",
     "description": ""
   },
   "options": {
@@ -12,16 +12,16 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "Name": {
       "type": "string"
     },
     "Description": {
       "type": "text"
     },
-    "URL": {
+    "MediaURL": {
       "type": "string"
     },
-    "type": {
+    "Type": {
       "type": "enumeration",
       "enum": [
         "Content",
@@ -32,23 +32,23 @@
         "Commercial Video"
       ]
     },
-    "thumbnail": {
+    "Thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images"
-      ],
+      ]
+    },
+    "UploadedMedia": {
       "type": "media",
       "multiple": false,
-      "required": true
-    },
-    "media": {
+      "required": false,
       "allowedTypes": [
         "videos"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": false
+      ]
     },
-    "isUploadedFile": {
+    "IsUploadedMedia": {
       "type": "boolean"
     }
   }

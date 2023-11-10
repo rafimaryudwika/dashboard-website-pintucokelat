@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_photo_booth_what_you_gots",
+  "info": {
+    "displayName": "WhatYouGot",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "WhatYouGotLists": {
+      "displayName": "WhatYouGotLists",
+      "type": "component",
+      "repeatable": true,
+      "component": "photo-booth.what-you-got-lists"
+    }
+  }
+}

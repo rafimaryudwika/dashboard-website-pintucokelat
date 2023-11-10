@@ -4,7 +4,7 @@
   "info": {
     "singularName": "photography-client-list",
     "pluralName": "photography-client-lists",
-    "displayName": "Photography Client List",
+    "displayName": "3B. Photography Client List",
     "description": ""
   },
   "options": {
@@ -12,12 +12,12 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "nama_klien": {
+    "Name": {
       "type": "string",
       "required": true,
       "unique": false
     },
-    "foto_utama": {
+    "MainPhoto": {
       "type": "media",
       "multiple": false,
       "required": true,
@@ -25,12 +25,11 @@
         "images"
       ]
     },
-    "slug": {
+    "Slug": {
       "type": "uid",
-      "targetField": "nama_klien",
       "required": true
     },
-    "gallery": {
+    "Gallery": {
       "type": "media",
       "multiple": true,
       "required": true,
@@ -38,11 +37,11 @@
         "images"
       ]
     },
-    "photography_subcategory": {
+    "PhotographySubCategory": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::photography-subcategory-list.photography-subcategory-list",
-      "inversedBy": "photography_client_lists"
+      "inversedBy": "PhotographyClientLists"
     }
   }
 }

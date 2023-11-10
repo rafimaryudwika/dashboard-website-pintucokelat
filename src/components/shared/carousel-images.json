@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_shared_carousel_images",
+  "info": {
+    "displayName": "CarouselImages",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "PortraitImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "LandscapeImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Description": {
+      "type": "string"
+    },
+    "EnableURL": {
+      "type": "boolean"
+    },
+    "URL": {
+      "type": "string"
+    }
+  }
+}

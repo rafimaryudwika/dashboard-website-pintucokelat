@@ -2,25 +2,35 @@
   "collectionName": "components_homepage_welcome_blocks",
   "info": {
     "displayName": "WelcomeBlock",
-    "icon": "gate"
+    "icon": "gate",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
+    "Title": {
       "type": "string"
     },
-    "tagline": {
+    "Tagline": {
       "type": "string"
     },
-    "hero_image": {
+    "DefaultImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "Carousel": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.carousel-images"
+    },
+    "EnableCarousel": {
+      "type": "boolean"
     }
   }
 }

@@ -682,7 +682,8 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
   info: {
     singularName: 'about-us';
     pluralName: 'about-uses';
-    displayName: 'About Us';
+    displayName: '3. About Us';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -691,6 +692,8 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     Paragraphs: Attribute.DynamicZone<
       ['shared.desc-with-pic', 'about-us.members']
     >;
+    Title: Attribute.String;
+    SEO: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -714,17 +717,21 @@ export interface ApiCreativeProjectCreativeProject extends Schema.SingleType {
   info: {
     singularName: 'creative-project';
     pluralName: 'creative-projects';
-    displayName: 'Creative Project';
+    displayName: '6. Creative Project';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
+    Title: Attribute.String;
     SEO: Attribute.Component<'shared.seo'>;
-    Carousel: Attribute.Component<'global-components.carousel'>;
     CallToAction: Attribute.Component<'shared.call-to-action'>;
+    DynamicContents: Attribute.DynamicZone<
+      ['shared.pic-with-title', 'shared.desc-with-pic']
+    >;
+    Carousel: Attribute.Component<'shared.carousel-images', true>;
+    AlertBar: Attribute.Component<'shared.test'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -749,20 +756,17 @@ export interface ApiCreativeProjectClientListCreativeProjectClientList
   info: {
     singularName: 'creative-project-client-list';
     pluralName: 'creative-project-client-lists';
-    displayName: 'Creative Project Client Lists';
+    displayName: '2. Creative Project Client Lists';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    nama_klien: Attribute.String;
-    foto_utama: Attribute.Media & Attribute.Required;
-    slug: Attribute.UID<
-      'api::creative-project-client-list.creative-project-client-list',
-      'nama_klien'
-    >;
-    tipe: Attribute.Enumeration<
+    Name: Attribute.String;
+    MainPhoto: Attribute.Media & Attribute.Required;
+    Slug: Attribute.UID;
+    Type: Attribute.Enumeration<
       [
         'Couple Sessions',
         'Foto Group',
@@ -805,21 +809,24 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
   info: {
     singularName: 'home-page';
     pluralName: 'home-pages';
-    displayName: 'HomePage';
+    displayName: '2. HomePage';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    judul: Attribute.String;
-    tagline: Attribute.String;
+    Title: Attribute.String;
     OurClient: Attribute.Component<'homepage-components.our-clients-block'>;
-    AlertBar: Attribute.Component<'global-components.test'>;
+    AlertBar: Attribute.Component<'shared.test'>;
     Welcome: Attribute.Component<'homepage-components.welcome-block'>;
     ServiceLists: Attribute.Component<
       'homepage-components.services-list',
       true
+    >;
+    SEO: Attribute.Component<'shared.seo'>;
+    DynamicContents: Attribute.DynamicZone<
+      ['shared.desc-with-pic', 'shared.pic-with-title']
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -839,26 +846,47 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
   };
 }
 
-export interface ApiMenuMenu extends Schema.CollectionType {
-  collectionName: 'menus';
+export interface ApiMainLayoutMainLayout extends Schema.SingleType {
+  collectionName: 'main_layouts';
   info: {
-    singularName: 'menu';
-    pluralName: 'menus';
-    displayName: 'Menu';
+    singularName: 'main-layout';
+    pluralName: 'main-layouts';
+    displayName: '1. Main Layout';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
-    url: Attribute.String;
-    enabled: Attribute.Boolean;
+    Logo: Attribute.Media & Attribute.Required;
+    FavIcon: Attribute.Media & Attribute.Required;
+    Menu: Attribute.Component<'layout.menu', true>;
+    SocialMedia: Attribute.Component<'layout.social-media', true>;
+    SocialMediaCTA: Attribute.String;
+    MenuTitle: Attribute.String;
+    QNATitle: Attribute.String;
+    Question: Attribute.Component<'layout.qna', true>;
+    AdditionalMenu: Attribute.Component<'layout.menu', true>;
+    Location: Attribute.Component<'layout.location-and-contact'>;
+    AdditionalMenuTitle: Attribute.String;
+    LocationTitle: Attribute.String;
+    AltLogo: Attribute.Media;
+    Copyright: Attribute.String;
+    AdditionalInfo: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::menu.menu', 'oneToOne', 'admin::user'> &
+    createdBy: Attribute.Relation<
+      'api::main-layout.main-layout',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
-    updatedBy: Attribute.Relation<'api::menu.menu', 'oneToOne', 'admin::user'> &
+    updatedBy: Attribute.Relation<
+      'api::main-layout.main-layout',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -868,17 +896,17 @@ export interface ApiPhPortofolioPhPortofolio extends Schema.CollectionType {
   info: {
     singularName: 'ph-portofolio';
     pluralName: 'ph-portofolios';
-    displayName: 'PH Portofolio';
+    displayName: '4A. PH Portofolio';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
+    Name: Attribute.String;
     Description: Attribute.Text;
-    URL: Attribute.String;
-    type: Attribute.Enumeration<
+    MediaURL: Attribute.String;
+    Type: Attribute.Enumeration<
       [
         'Content',
         'Short Film',
@@ -888,9 +916,9 @@ export interface ApiPhPortofolioPhPortofolio extends Schema.CollectionType {
         'Commercial Video'
       ]
     >;
-    thumbnail: Attribute.Media & Attribute.Required;
-    media: Attribute.Media;
-    isUploadedFile: Attribute.Boolean;
+    Thumbnail: Attribute.Media & Attribute.Required;
+    UploadedMedia: Attribute.Media;
+    IsUploadedMedia: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -914,15 +942,15 @@ export interface ApiPhQuoteListPhQuoteList extends Schema.CollectionType {
   info: {
     singularName: 'ph-quote-list';
     pluralName: 'ph-quote-lists';
-    displayName: 'PH Quote Lists';
+    displayName: '4B. PH Quote Lists';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    project_title: Attribute.String & Attribute.Required;
-    project_type: Attribute.Enumeration<
+    ProjectTitle: Attribute.String & Attribute.Required;
+    ProjectType: Attribute.Enumeration<
       [
         'Content',
         'Short Film',
@@ -932,7 +960,7 @@ export interface ApiPhQuoteListPhQuoteList extends Schema.CollectionType {
         'Commercial Video'
       ]
     >;
-    estimated_budget: Attribute.Enumeration<
+    EstimatedBudget: Attribute.Enumeration<
       [
         '< IDR 5.000.000',
         'IDR 5.000.000 - 10.000.000',
@@ -941,14 +969,14 @@ export interface ApiPhQuoteListPhQuoteList extends Schema.CollectionType {
         '> IDR 500.000.000'
       ]
     >;
-    reference: Attribute.String;
-    project_description: Attribute.Text;
-    first_name: Attribute.String;
-    last_name: Attribute.String;
-    organization_name: Attribute.String;
-    email: Attribute.String;
-    phone_number: Attribute.BigInteger;
-    brief: Attribute.Media & Attribute.Required;
+    Reference: Attribute.String;
+    ProjectDescription: Attribute.Text;
+    FirstName: Attribute.String;
+    LastName: Attribute.String;
+    OrganizationName: Attribute.String;
+    Email: Attribute.String;
+    PhoneNumber: Attribute.BigInteger;
+    Brief: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -972,24 +1000,24 @@ export interface ApiPhotoBoothPhotoBooth extends Schema.SingleType {
   info: {
     singularName: 'photo-booth';
     pluralName: 'photo-booths';
-    displayName: 'Photo Booth';
+    displayName: '9. Photo Booth';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
-    SEO: Attribute.Component<'shared.seo', true>;
-    logo_photobooth: Attribute.Media;
-    photobooth_gallery: Attribute.Media & Attribute.Required;
-    FirstParagraphTitle: Attribute.String;
-    FirstParagraphDesc: Attribute.Text;
-    SecondParagraphTitle: Attribute.String;
-    SecondParagraphDesc: Attribute.Text;
-    SecondParagraphImg: Attribute.Media & Attribute.Required;
-    AnatomyTitle: Attribute.String;
-    AnatomyImg: Attribute.Media & Attribute.Required;
+    Title: Attribute.String;
+    SEO: Attribute.Component<'shared.seo'>;
     CallToAction: Attribute.Component<'shared.call-to-action'>;
+    DynamicContents: Attribute.DynamicZone<
+      ['shared.pic-with-title', 'shared.desc-with-pic']
+    >;
+    FramePhotoBooth: Attribute.Component<'photo-booth.frame-photobooth'>;
+    Testimonial: Attribute.Component<'photo-booth.testimonial'>;
+    WhatYouGot: Attribute.Component<'photo-booth.what-you-got'>;
+    Carousel: Attribute.Component<'photo-booth.photo-booth-carousel'>;
+    AlertBar: Attribute.Component<'shared.test'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1013,7 +1041,8 @@ export interface ApiPhotographyPhotography extends Schema.SingleType {
   info: {
     singularName: 'photography';
     pluralName: 'photographies';
-    displayName: 'Photography';
+    displayName: '7. Photography';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1021,8 +1050,12 @@ export interface ApiPhotographyPhotography extends Schema.SingleType {
   attributes: {
     Title: Attribute.String;
     SEO: Attribute.Component<'shared.seo'>;
-    Carousel: Attribute.Component<'global-components.carousel'>;
     CallToAction: Attribute.Component<'shared.call-to-action'>;
+    DynamicContents: Attribute.DynamicZone<
+      ['shared.pic-with-title', 'shared.desc-with-pic']
+    >;
+    Carousel: Attribute.Component<'shared.carousel-images', true>;
+    AlertBar: Attribute.Component<'shared.test'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1047,22 +1080,18 @@ export interface ApiPhotographyClientListPhotographyClientList
   info: {
     singularName: 'photography-client-list';
     pluralName: 'photography-client-lists';
-    displayName: 'Photography Client List';
+    displayName: '3B. Photography Client List';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    nama_klien: Attribute.String & Attribute.Required;
-    foto_utama: Attribute.Media & Attribute.Required;
-    slug: Attribute.UID<
-      'api::photography-client-list.photography-client-list',
-      'nama_klien'
-    > &
-      Attribute.Required;
-    gallery: Attribute.Media & Attribute.Required;
-    photography_subcategory: Attribute.Relation<
+    Name: Attribute.String & Attribute.Required;
+    MainPhoto: Attribute.Media & Attribute.Required;
+    Slug: Attribute.UID & Attribute.Required;
+    Gallery: Attribute.Media & Attribute.Required;
+    PhotographySubCategory: Attribute.Relation<
       'api::photography-client-list.photography-client-list',
       'manyToOne',
       'api::photography-subcategory-list.photography-subcategory-list'
@@ -1091,7 +1120,7 @@ export interface ApiPhotographySubcategoryListPhotographySubcategoryList
   info: {
     singularName: 'photography-subcategory-list';
     pluralName: 'photography-subcategory-lists';
-    displayName: 'Photography Subcategory';
+    displayName: '3A. Photography Subcategory';
     description: '';
   };
   options: {
@@ -1110,7 +1139,7 @@ export interface ApiPhotographySubcategoryListPhotographySubcategoryList
         'Dokumentasi'
       ]
     >;
-    photography_client_lists: Attribute.Relation<
+    PhotographyClientLists: Attribute.Relation<
       'api::photography-subcategory-list.photography-subcategory-list',
       'oneToMany',
       'api::photography-client-list.photography-client-list'
@@ -1139,21 +1168,18 @@ export interface ApiPreweddingWeddingPreweddingWedding
   info: {
     singularName: 'prewedding-wedding';
     pluralName: 'prewedding-weddings';
-    displayName: 'Wedding Client Lists';
+    displayName: '1. Wedding Client Lists';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    nama_klien: Attribute.String;
-    foto_utama: Attribute.Media;
-    deskripsi: Attribute.Text;
-    modal: Attribute.UID<
-      'api::prewedding-wedding.prewedding-wedding',
-      'nama_klien'
-    >;
-    tipe: Attribute.Enumeration<['Engagement', 'Pre-Wedding', 'Wedding']>;
+    Name: Attribute.String;
+    MainPhoto: Attribute.Media;
+    Description: Attribute.Text;
+    Slug: Attribute.UID;
+    Type: Attribute.Enumeration<['Engagement', 'Pre-Wedding', 'Wedding']>;
     DynamicGalleryGrids: Attribute.DynamicZone<
       [
         'gallery.four-photos',
@@ -1186,7 +1212,8 @@ export interface ApiProductionHouseProductionHouse extends Schema.SingleType {
   info: {
     singularName: 'production-house';
     pluralName: 'production-houses';
-    displayName: 'Production House';
+    displayName: '8. Production House';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1194,8 +1221,10 @@ export interface ApiProductionHouseProductionHouse extends Schema.SingleType {
   attributes: {
     Title: Attribute.String & Attribute.Required;
     SEO: Attribute.Component<'shared.seo'>;
-    Carousel: Attribute.Component<'global-components.carousel'>;
     CallToAction: Attribute.Component<'shared.call-to-action'>;
+    DynamicContents: Attribute.DynamicZone<['shared.desc-with-pic']>;
+    Carousel: Attribute.Component<'shared.carousel-images', true>;
+    AlertBar: Attribute.Component<'shared.test'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1262,19 +1291,23 @@ export interface ApiSelfPhotoStudioSelfPhotoStudio extends Schema.SingleType {
   info: {
     singularName: 'self-photo-studio';
     pluralName: 'self-photo-studios';
-    displayName: 'Self-Photo Studio';
+    displayName: '4. Self-Photo Studio';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
-    Alert: Attribute.Component<'global-components.test'>;
+    Title: Attribute.String;
+    AlertBar: Attribute.Component<'shared.test'>;
     PriceLists: Attribute.Component<'self-photo-studio.pricelist-block'>;
     ColorChoices: Attribute.Component<'self-photo-studio.color-choices-block'>;
     CallToAction: Attribute.Component<'self-photo-studio.self-photo-cta'>;
     Header: Attribute.Component<'self-photo-studio.self-photo-header'>;
+    SEO: Attribute.Component<'shared.seo'>;
+    DynamicZone: Attribute.DynamicZone<
+      ['shared.pic-with-title', 'shared.desc-with-pic']
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1298,16 +1331,21 @@ export interface ApiWeddingPageWeddingPage extends Schema.SingleType {
   info: {
     singularName: 'wedding-page';
     pluralName: 'wedding-pages';
-    displayName: 'Wedding Page';
+    displayName: '5. Wedding Page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
+    Title: Attribute.String;
     SEO: Attribute.Component<'shared.seo'>;
-    Carousel: Attribute.Component<'global-components.carousel', true>;
     CallToAction: Attribute.Component<'shared.call-to-action'>;
+    DynamicContents: Attribute.DynamicZone<
+      ['shared.pic-with-title', 'shared.desc-with-pic']
+    >;
+    Carousel: Attribute.Component<'shared.carousel-images', true>;
+    AlertBar: Attribute.Component<'shared.test', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1346,7 +1384,7 @@ declare module '@strapi/types' {
       'api::creative-project.creative-project': ApiCreativeProjectCreativeProject;
       'api::creative-project-client-list.creative-project-client-list': ApiCreativeProjectClientListCreativeProjectClientList;
       'api::home-page.home-page': ApiHomePageHomePage;
-      'api::menu.menu': ApiMenuMenu;
+      'api::main-layout.main-layout': ApiMainLayoutMainLayout;
       'api::ph-portofolio.ph-portofolio': ApiPhPortofolioPhPortofolio;
       'api::ph-quote-list.ph-quote-list': ApiPhQuoteListPhQuoteList;
       'api::photo-booth.photo-booth': ApiPhotoBoothPhotoBooth;

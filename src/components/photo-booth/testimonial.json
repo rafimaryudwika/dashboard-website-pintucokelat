@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_photo_booth_testimonials",
+  "info": {
+    "displayName": "Testimonial"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "ClientLists": {
+      "type": "component",
+      "repeatable": true,
+      "component": "photo-booth.client-lists"
+    }
+  }
+}

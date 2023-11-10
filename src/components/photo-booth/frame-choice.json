@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_photo_booth_frame_choices",
+  "info": {
+    "displayName": "FrameChoice",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "FrameImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Name": {
+      "type": "string"
+    }
+  }
+}

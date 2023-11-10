@@ -4,7 +4,7 @@
   "info": {
     "singularName": "prewedding-wedding",
     "pluralName": "prewedding-weddings",
-    "displayName": "Wedding Client Lists",
+    "displayName": "1. Wedding Client Lists",
     "description": ""
   },
   "options": {
@@ -12,10 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "nama_klien": {
+    "Name": {
       "type": "string"
     },
-    "foto_utama": {
+    "MainPhoto": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -26,14 +26,13 @@
         "audios"
       ]
     },
-    "deskripsi": {
+    "Description": {
       "type": "text"
     },
-    "modal": {
-      "type": "uid",
-      "targetField": "nama_klien"
+    "Slug": {
+      "type": "uid"
     },
-    "tipe": {
+    "Type": {
       "type": "enumeration",
       "enum": [
         "Engagement",

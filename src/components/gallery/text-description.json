@@ -1,12 +1,19 @@
 {
   "collectionName": "components_gallery_text_descriptions",
   "info": {
-    "displayName": "TextDescription"
+    "displayName": "TextDescription",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "Description": {
       "type": "text"
+    },
+    "RichDescription": {
+      "type": "richtext"
+    },
+    "EnableRichDescription": {
+      "type": "boolean"
     }
   }
 }

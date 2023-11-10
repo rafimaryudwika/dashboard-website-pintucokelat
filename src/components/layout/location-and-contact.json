@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_layout_location_and_contacts",
+  "info": {
+    "displayName": "LocationAndContact",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Address": {
+      "type": "text"
+    },
+    "Email": {
+      "type": "string"
+    },
+    "PhoneNumber": {
+      "type": "string"
+    },
+    "AddressURL": {
+      "type": "string"
+    },
+    "ActualPhoneNumber": {
+      "type": "biginteger"
+    }
+  }
+}

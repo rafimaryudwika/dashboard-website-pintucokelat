@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_layout_social_medias",
+  "info": {
+    "displayName": "Social Media",
+    "icon": "earth"
+  },
+  "options": {},
+  "attributes": {
+    "SocialMedia": {
+      "type": "enumeration",
+      "enum": [
+        "Facebook",
+        "X (Twitter)",
+        "Instagram",
+        "TikTok",
+        "YouTube"
+      ]
+    },
+    "URL": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "Enabled": {
+      "type": "boolean"
+    }
+  }
+}

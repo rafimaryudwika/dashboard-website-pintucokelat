@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_layout_qnas",
+  "info": {
+    "displayName": "QNA",
+    "icon": "envelop"
+  },
+  "options": {},
+  "attributes": {
+    "ContactTitle": {
+      "type": "string"
+    },
+    "ContactType": {
+      "type": "enumeration",
+      "enum": [
+        "WhatsApp",
+        "LINE",
+        "Instagram DM"
+      ]
+    },
+    "URL": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_photo_booth_what_you_got_lists",
+  "info": {
+    "displayName": "WhatYouGotLists",
+    "icon": "filter"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "text"
+    }
+  }
+}

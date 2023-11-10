@@ -2,11 +2,12 @@
   "collectionName": "components_selfphoto_colorchoices",
   "info": {
     "displayName": "ColorChoicesBlock",
-    "icon": "chartBubble"
+    "icon": "chartBubble",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "heading": {
+    "Heading": {
       "type": "string"
     },
     "ColorCard": {

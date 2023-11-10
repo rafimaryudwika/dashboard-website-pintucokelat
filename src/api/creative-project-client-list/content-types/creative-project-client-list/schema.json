@@ -4,7 +4,7 @@
   "info": {
     "singularName": "creative-project-client-list",
     "pluralName": "creative-project-client-lists",
-    "displayName": "Creative Project Client Lists",
+    "displayName": "2. Creative Project Client Lists",
     "description": ""
   },
   "options": {
@@ -12,10 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "nama_klien": {
+    "Name": {
       "type": "string"
     },
-    "foto_utama": {
+    "MainPhoto": {
       "type": "media",
       "multiple": false,
       "required": true,
@@ -23,11 +23,10 @@
         "images"
       ]
     },
-    "slug": {
-      "type": "uid",
-      "targetField": "nama_klien"
+    "Slug": {
+      "type": "uid"
     },
-    "tipe": {
+    "Type": {
       "type": "enumeration",
       "enum": [
         "Couple Sessions",

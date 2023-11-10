@@ -4,7 +4,7 @@
   "info": {
     "singularName": "home-page",
     "pluralName": "home-pages",
-    "displayName": "HomePage",
+    "displayName": "2. HomePage",
     "description": ""
   },
   "options": {
@@ -12,10 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "judul": {
-      "type": "string"
-    },
-    "tagline": {
+    "Title": {
       "type": "string"
     },
     "OurClient": {
@@ -26,7 +23,7 @@
     "AlertBar": {
       "type": "component",
       "repeatable": false,
-      "component": "global-components.test"
+      "component": "shared.test"
     },
     "Welcome": {
       "type": "component",
@@ -38,6 +35,18 @@
       "type": "component",
       "repeatable": true,
       "component": "homepage-components.services-list"
+    },
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "DynamicContents": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.desc-with-pic",
+        "shared.pic-with-title"
+      ]
     }
   }
 }

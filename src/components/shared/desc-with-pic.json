@@ -1,22 +1,40 @@
 {
   "collectionName": "components_shared_desc_with_pics",
   "info": {
-    "displayName": "DescWithPic"
+    "displayName": "DescWithPic",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "image": {
+    "CarouselImages": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
-    "description": {
-      "type": "text"
+    "ImagePosition": {
+      "type": "enumeration",
+      "enum": [
+        "Left",
+        "Right",
+        "Top"
+      ]
+    },
+    "EnableCarousel": {
+      "type": "boolean"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "DefaultImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
