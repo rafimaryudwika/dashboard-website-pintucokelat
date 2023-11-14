@@ -7,19 +7,23 @@
   "options": {},
   "attributes": {
     "Address": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "Email": {
       "type": "string"
     },
     "PhoneNumber": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "AddressURL": {
-      "type": "string"
+      "type": "string",
+      "required": false
     },
     "ActualPhoneNumber": {
-      "type": "biginteger"
+      "type": "biginteger",
+      "required": false
     }
   }
 }

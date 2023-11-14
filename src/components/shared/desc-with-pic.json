@@ -20,10 +20,14 @@
         "Left",
         "Right",
         "Top"
-      ]
+      ],
+      "default": "Left",
+      "required": true
     },
     "EnableCarousel": {
-      "type": "boolean"
+      "type": "boolean",
+      "required": true,
+      "default": false
     },
     "Description": {
       "type": "richtext"

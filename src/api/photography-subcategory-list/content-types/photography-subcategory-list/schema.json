@@ -27,7 +27,8 @@
         "Maternity",
         "Foto Profil",
         "Dokumentasi"
-      ]
+      ],
+      "required": true
     },
     "PhotographyClientLists": {
       "type": "relation",

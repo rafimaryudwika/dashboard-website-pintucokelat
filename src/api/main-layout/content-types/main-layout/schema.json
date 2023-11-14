@@ -41,13 +41,16 @@
       "component": "layout.social-media"
     },
     "SocialMediaCTA": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "MenuTitle": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "QNATitle": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Question": {
       "displayName": "QNA",
@@ -70,21 +73,24 @@
       "type": "string"
     },
     "LocationTitle": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "AltLogo": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images"
       ]
     },
     "Copyright": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "AdditionalInfo": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     }
   }
 }

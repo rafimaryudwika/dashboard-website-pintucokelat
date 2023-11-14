@@ -8,20 +8,19 @@
   "options": {},
   "attributes": {
     "Title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Tagline": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "DefaultImage": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "images"
       ]
     },
     "Carousel": {
@@ -30,7 +29,9 @@
       "component": "shared.carousel-images"
     },
     "EnableCarousel": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

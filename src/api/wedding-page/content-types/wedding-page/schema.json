@@ -13,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "Title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "SEO": {
       "type": "component",
@@ -44,7 +45,8 @@
       "component": "shared.test"
     },
     "GalleryTitle": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }

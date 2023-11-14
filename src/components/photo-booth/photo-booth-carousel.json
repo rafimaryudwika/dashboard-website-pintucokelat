@@ -2,19 +2,18 @@
   "collectionName": "components_photo_booth_carousels",
   "info": {
     "displayName": "PhotoBoothCarousel",
-    "icon": "picture"
+    "icon": "picture",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "Logo": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
       "type": "media",
-      "multiple": true
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "Images": {
       "displayName": "CarouselImages",

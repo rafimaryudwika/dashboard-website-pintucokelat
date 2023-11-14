@@ -692,7 +692,7 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     Paragraphs: Attribute.DynamicZone<
       ['shared.desc-with-pic', 'about-us.members']
     >;
-    Title: Attribute.String;
+    Title: Attribute.String & Attribute.Required;
     SEO: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -724,7 +724,7 @@ export interface ApiCreativeProjectCreativeProject extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String;
+    Title: Attribute.String & Attribute.Required;
     SEO: Attribute.Component<'shared.seo'>;
     CallToAction: Attribute.Component<'shared.call-to-action'>;
     DynamicContents: Attribute.DynamicZone<
@@ -732,7 +732,7 @@ export interface ApiCreativeProjectCreativeProject extends Schema.SingleType {
     >;
     Carousel: Attribute.Component<'shared.carousel-images', true>;
     AlertBar: Attribute.Component<'shared.test'>;
-    GalleryTitle: Attribute.String;
+    GalleryTitle: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -764,23 +764,17 @@ export interface ApiCreativeProjectClientListCreativeProjectClientList
     draftAndPublish: true;
   };
   attributes: {
-    Name: Attribute.String;
+    Name: Attribute.String & Attribute.Required;
     MainPhoto: Attribute.Media & Attribute.Required;
     Slug: Attribute.UID<
       'api::creative-project-client-list.creative-project-client-list',
       'Name'
-    >;
+    > &
+      Attribute.Required;
     Type: Attribute.Enumeration<
-      [
-        'Couple Sessions',
-        'Foto Group',
-        'Wisuda',
-        'Fashion',
-        'Maternity',
-        'Foto Profil',
-        'Dokumentasi'
-      ]
-    >;
+      ['Product Photography', 'Design Graphics', 'Social Media Content']
+    > &
+      Attribute.Required;
     DynamicGallery: Attribute.DynamicZone<
       [
         'gallery.four-photos',
@@ -821,7 +815,7 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String;
+    Title: Attribute.String & Attribute.Required;
     OurClient: Attribute.Component<'homepage-components.our-clients-block'>;
     AlertBar: Attribute.Component<'shared.test'>;
     Welcome: Attribute.Component<'homepage-components.welcome-block'>;
@@ -867,17 +861,17 @@ export interface ApiMainLayoutMainLayout extends Schema.SingleType {
     FavIcon: Attribute.Media & Attribute.Required;
     Menu: Attribute.Component<'layout.menu', true>;
     SocialMedia: Attribute.Component<'layout.social-media', true>;
-    SocialMediaCTA: Attribute.String;
-    MenuTitle: Attribute.String;
-    QNATitle: Attribute.String;
+    SocialMediaCTA: Attribute.String & Attribute.Required;
+    MenuTitle: Attribute.String & Attribute.Required;
+    QNATitle: Attribute.String & Attribute.Required;
     Question: Attribute.Component<'layout.qna', true>;
     AdditionalMenu: Attribute.Component<'layout.menu', true>;
     Location: Attribute.Component<'layout.location-and-contact'>;
     AdditionalMenuTitle: Attribute.String;
-    LocationTitle: Attribute.String;
-    AltLogo: Attribute.Media;
-    Copyright: Attribute.String;
-    AdditionalInfo: Attribute.RichText;
+    LocationTitle: Attribute.String & Attribute.Required;
+    AltLogo: Attribute.Media & Attribute.Required;
+    Copyright: Attribute.String & Attribute.Required;
+    AdditionalInfo: Attribute.RichText & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -908,9 +902,9 @@ export interface ApiPhPortofolioPhPortofolio extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Name: Attribute.String;
+    Name: Attribute.String & Attribute.Required;
     Description: Attribute.Text;
-    MediaURL: Attribute.String;
+    MediaURL: Attribute.String & Attribute.Required;
     Type: Attribute.Enumeration<
       [
         'Content',
@@ -920,11 +914,15 @@ export interface ApiPhPortofolioPhPortofolio extends Schema.CollectionType {
         'Music Video',
         'Commercial Video'
       ]
-    >;
+    > &
+      Attribute.Required;
     Thumbnail: Attribute.Media & Attribute.Required;
     UploadedMedia: Attribute.Media;
-    IsUploadedMedia: Attribute.Boolean;
-    Slug: Attribute.UID<'api::ph-portofolio.ph-portofolio', 'Name'>;
+    IsUploadedMedia: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    Slug: Attribute.UID<'api::ph-portofolio.ph-portofolio', 'Name'> &
+      Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1054,7 +1052,7 @@ export interface ApiPhotographyPhotography extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String;
+    Title: Attribute.String & Attribute.Required;
     SEO: Attribute.Component<'shared.seo'>;
     CallToAction: Attribute.Component<'shared.call-to-action'>;
     DynamicContents: Attribute.DynamicZone<
@@ -1062,7 +1060,7 @@ export interface ApiPhotographyPhotography extends Schema.SingleType {
     >;
     Carousel: Attribute.Component<'shared.carousel-images', true>;
     AlertBar: Attribute.Component<'shared.test'>;
-    GalleryTitle: Attribute.String;
+    GalleryTitle: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1149,7 +1147,8 @@ export interface ApiPhotographySubcategoryListPhotographySubcategoryList
         'Foto Profil',
         'Dokumentasi'
       ]
-    >;
+    > &
+      Attribute.Required;
     PhotographyClientLists: Attribute.Relation<
       'api::photography-subcategory-list.photography-subcategory-list',
       'oneToMany',
@@ -1186,11 +1185,13 @@ export interface ApiPreweddingWeddingPreweddingWedding
     draftAndPublish: true;
   };
   attributes: {
-    Name: Attribute.String;
-    MainPhoto: Attribute.Media;
+    Name: Attribute.String & Attribute.Required;
+    MainPhoto: Attribute.Media & Attribute.Required;
     Description: Attribute.Text;
-    Slug: Attribute.UID<'api::prewedding-wedding.prewedding-wedding', 'Name'>;
-    Type: Attribute.Enumeration<['Engagement', 'Pre-Wedding', 'Wedding']>;
+    Slug: Attribute.UID<'api::prewedding-wedding.prewedding-wedding', 'Name'> &
+      Attribute.Required;
+    Type: Attribute.Enumeration<['Engagement', 'Pre-Wedding', 'Wedding']> &
+      Attribute.Required;
     DynamicGalleryGrids: Attribute.DynamicZone<
       [
         'gallery.four-photos',
@@ -1267,10 +1268,10 @@ export interface ApiPromotionPromotion extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Name: Attribute.String;
+    Name: Attribute.String & Attribute.Required;
     Description: Attribute.String;
-    URL: Attribute.String;
-    Image: Attribute.Media;
+    URL: Attribute.String & Attribute.Required;
+    Image: Attribute.Media & Attribute.Required;
     Category: Attribute.Enumeration<
       [
         'Self-Photo Studio',
@@ -1280,7 +1281,8 @@ export interface ApiPromotionPromotion extends Schema.CollectionType {
         'Production House',
         'Photo Booth'
       ]
-    >;
+    > &
+      Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1311,7 +1313,7 @@ export interface ApiSelfPhotoStudioSelfPhotoStudio extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String;
+    Title: Attribute.String & Attribute.Required;
     AlertBar: Attribute.Component<'shared.test'>;
     PriceLists: Attribute.Component<'self-photo-studio.pricelist-block'>;
     ColorChoices: Attribute.Component<'self-photo-studio.color-choices-block'>;
@@ -1351,7 +1353,7 @@ export interface ApiWeddingPageWeddingPage extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String;
+    Title: Attribute.String & Attribute.Required;
     SEO: Attribute.Component<'shared.seo'>;
     CallToAction: Attribute.Component<'shared.call-to-action'>;
     DynamicContents: Attribute.DynamicZone<
@@ -1359,7 +1361,7 @@ export interface ApiWeddingPageWeddingPage extends Schema.SingleType {
     >;
     Carousel: Attribute.Component<'shared.carousel-images', true>;
     AlertBar: Attribute.Component<'shared.test', true>;
-    GalleryTitle: Attribute.String;
+    GalleryTitle: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

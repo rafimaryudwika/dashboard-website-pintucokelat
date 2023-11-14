@@ -2,12 +2,14 @@
   "collectionName": "components_layout_qnas",
   "info": {
     "displayName": "QNA",
-    "icon": "envelop"
+    "icon": "envelop",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "ContactTitle": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "ContactType": {
       "type": "enumeration",
@@ -15,10 +17,12 @@
         "WhatsApp",
         "LINE",
         "Instagram DM"
-      ]
+      ],
+      "required": true
     },
     "URL": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }

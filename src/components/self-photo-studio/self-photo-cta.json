@@ -2,18 +2,22 @@
   "collectionName": "components_self_photo_studio_self_photo_ctas",
   "info": {
     "displayName": "SelfPhotoCTA",
-    "icon": "volumeUp"
+    "icon": "volumeUp",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "CallToAction": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "ButtonText": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "URL": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }

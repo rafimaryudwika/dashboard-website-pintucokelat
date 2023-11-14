@@ -8,12 +8,14 @@
   "options": {},
   "attributes": {
     "Title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Lists": {
       "type": "component",
       "repeatable": true,
-      "component": "homepage-components.our-client"
+      "component": "homepage-components.our-client",
+      "required": true
     }
   }
 }

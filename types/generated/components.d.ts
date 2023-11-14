@@ -7,7 +7,7 @@ export interface AboutUsMemberComponent extends Schema.Component {
     description: '';
   };
   attributes: {
-    Name: Attribute.String;
+    Name: Attribute.String & Attribute.Required;
     Role: Attribute.String;
     Photo: Attribute.Media;
   };
@@ -20,7 +20,7 @@ export interface AboutUsMembers extends Schema.Component {
     description: '';
   };
   attributes: {
-    Title: Attribute.String;
+    Title: Attribute.String & Attribute.Required;
     MemberList: Attribute.Component<'about-us.member-component', true>;
   };
 }
@@ -86,7 +86,9 @@ export interface GalleryTextDescription extends Schema.Component {
   attributes: {
     Description: Attribute.Text;
     RichDescription: Attribute.RichText;
-    EnableRichDescription: Attribute.Boolean;
+    EnableRichDescription: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
   };
 }
 
@@ -126,8 +128,10 @@ export interface HomepageComponentsOurClient extends Schema.Component {
   };
   attributes: {
     Name: Attribute.String & Attribute.Required;
-    Logo: Attribute.Media;
-    Width: Attribute.Enumeration<['Single', 'Double', 'Triple']>;
+    Logo: Attribute.Media & Attribute.Required;
+    Width: Attribute.Enumeration<['Single', 'Double', 'Triple']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'Single'>;
   };
 }
 
@@ -139,8 +143,9 @@ export interface HomepageComponentsOurClientsBlock extends Schema.Component {
     description: '';
   };
   attributes: {
-    Title: Attribute.String;
-    Lists: Attribute.Component<'homepage-components.our-client', true>;
+    Title: Attribute.String & Attribute.Required;
+    Lists: Attribute.Component<'homepage-components.our-client', true> &
+      Attribute.Required;
   };
 }
 
@@ -180,12 +185,14 @@ export interface HomepageComponentsServicesList extends Schema.Component {
     description: '';
   };
   attributes: {
-    ServiceName: Attribute.String & Attribute.Required & Attribute.Unique;
-    Tagline: Attribute.String;
+    ServiceName: Attribute.String & Attribute.Required;
+    Tagline: Attribute.String & Attribute.Required;
     DefaultPhoto: Attribute.Media & Attribute.Required;
     ShuffledPhotos: Attribute.Media;
     URL: Attribute.String;
-    Accessible: Attribute.Boolean;
+    Accessible: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
   };
 }
 
@@ -197,11 +204,13 @@ export interface HomepageComponentsWelcomeBlock extends Schema.Component {
     description: '';
   };
   attributes: {
-    Title: Attribute.String;
-    Tagline: Attribute.String;
-    DefaultImage: Attribute.Media;
+    Title: Attribute.String & Attribute.Required;
+    Tagline: Attribute.String & Attribute.Required;
+    DefaultImage: Attribute.Media & Attribute.Required;
     Carousel: Attribute.Component<'shared.carousel-images', true>;
-    EnableCarousel: Attribute.Boolean;
+    EnableCarousel: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
   };
 }
 
@@ -212,9 +221,9 @@ export interface LayoutLocationAndContact extends Schema.Component {
     description: '';
   };
   attributes: {
-    Address: Attribute.Text;
+    Address: Attribute.Text & Attribute.Required;
     Email: Attribute.String;
-    PhoneNumber: Attribute.String;
+    PhoneNumber: Attribute.String & Attribute.Required;
     AddressURL: Attribute.String;
     ActualPhoneNumber: Attribute.BigInteger;
   };
@@ -228,9 +237,11 @@ export interface LayoutMenu extends Schema.Component {
     description: '';
   };
   attributes: {
-    Name: Attribute.String;
-    URL: Attribute.String;
-    Enabled: Attribute.Boolean;
+    Name: Attribute.String & Attribute.Required;
+    URL: Attribute.String & Attribute.Required;
+    Enabled: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
     Description: Attribute.String;
   };
 }
@@ -240,11 +251,13 @@ export interface LayoutQna extends Schema.Component {
   info: {
     displayName: 'QNA';
     icon: 'envelop';
+    description: '';
   };
   attributes: {
-    ContactTitle: Attribute.String;
-    ContactType: Attribute.Enumeration<['WhatsApp', 'LINE', 'Instagram DM']>;
-    URL: Attribute.String;
+    ContactTitle: Attribute.String & Attribute.Required;
+    ContactType: Attribute.Enumeration<['WhatsApp', 'LINE', 'Instagram DM']> &
+      Attribute.Required;
+    URL: Attribute.String & Attribute.Required;
   };
 }
 
@@ -253,14 +266,18 @@ export interface LayoutSocialMedia extends Schema.Component {
   info: {
     displayName: 'Social Media';
     icon: 'earth';
+    description: '';
   };
   attributes: {
     SocialMedia: Attribute.Enumeration<
       ['Facebook', 'X (Twitter)', 'Instagram', 'TikTok', 'YouTube']
-    >;
-    URL: Attribute.String;
+    > &
+      Attribute.Required;
+    URL: Attribute.String & Attribute.Required;
     Description: Attribute.String;
-    Enabled: Attribute.Boolean;
+    Enabled: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
   };
 }
 
@@ -268,10 +285,11 @@ export interface PhotoBoothClientLists extends Schema.Component {
   collectionName: 'components_photo_booth_client_lists';
   info: {
     displayName: 'ClientLists';
+    description: '';
   };
   attributes: {
-    Photos: Attribute.Media;
-    Name: Attribute.String;
+    Photos: Attribute.Media & Attribute.Required;
+    Name: Attribute.String & Attribute.Required;
   };
 }
 
@@ -304,6 +322,7 @@ export interface PhotoBoothPhotoBoothCarousel extends Schema.Component {
   info: {
     displayName: 'PhotoBoothCarousel';
     icon: 'picture';
+    description: '';
   };
   attributes: {
     Logo: Attribute.Media;
@@ -315,9 +334,10 @@ export interface PhotoBoothTestimonial extends Schema.Component {
   collectionName: 'components_photo_booth_testimonials';
   info: {
     displayName: 'Testimonial';
+    description: '';
   };
   attributes: {
-    Title: Attribute.String;
+    Title: Attribute.String & Attribute.Required;
     ClientLists: Attribute.Component<'photo-booth.client-lists', true>;
   };
 }
@@ -327,9 +347,10 @@ export interface PhotoBoothWhatYouGotLists extends Schema.Component {
   info: {
     displayName: 'WhatYouGotLists';
     icon: 'filter';
+    description: '';
   };
   attributes: {
-    Name: Attribute.Text;
+    Name: Attribute.Text & Attribute.Required;
   };
 }
 
@@ -338,9 +359,10 @@ export interface PhotoBoothWhatYouGot extends Schema.Component {
   info: {
     displayName: 'WhatYouGot';
     icon: 'bulletList';
+    description: '';
   };
   attributes: {
-    Title: Attribute.String;
+    Title: Attribute.String & Attribute.Required;
     WhatYouGotLists: Attribute.Component<
       'photo-booth.what-you-got-lists',
       true
@@ -369,7 +391,7 @@ export interface SelfPhotoStudioColorChoicesBlock extends Schema.Component {
     description: '';
   };
   attributes: {
-    Heading: Attribute.String;
+    Heading: Attribute.String & Attribute.Required;
     ColorCard: Attribute.Component<'self-photo-studio.color-card', true>;
   };
 }
@@ -382,7 +404,7 @@ export interface SelfPhotoStudioPricelistBlock extends Schema.Component {
     description: '';
   };
   attributes: {
-    Title: Attribute.String;
+    Title: Attribute.String & Attribute.Required;
     Pricelists: Attribute.Component<'self-photo-studio.pricelist-card', true>;
     Notes: Attribute.String;
   };
@@ -393,6 +415,7 @@ export interface SelfPhotoStudioPricelistCard extends Schema.Component {
   info: {
     displayName: 'PricelistCard';
     icon: 'shoppingCart';
+    description: '';
   };
   attributes: {
     NamaPaket: Attribute.String;
@@ -401,6 +424,10 @@ export interface SelfPhotoStudioPricelistCard extends Schema.Component {
     Durasi: Attribute.String;
     Deskripsi: Attribute.String;
     Photo: Attribute.Media;
+    EnableDiscount: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    HargaDiskon: Attribute.String;
   };
 }
 
@@ -409,11 +436,12 @@ export interface SelfPhotoStudioSelfPhotoCta extends Schema.Component {
   info: {
     displayName: 'SelfPhotoCTA';
     icon: 'volumeUp';
+    description: '';
   };
   attributes: {
-    CallToAction: Attribute.String;
-    ButtonText: Attribute.String;
-    URL: Attribute.String;
+    CallToAction: Attribute.String & Attribute.Required;
+    ButtonText: Attribute.String & Attribute.Required;
+    URL: Attribute.String & Attribute.Required;
   };
 }
 
@@ -442,10 +470,10 @@ export interface SharedCallToAction extends Schema.Component {
   };
   attributes: {
     CTATitle: Attribute.String & Attribute.Required;
-    PriceListButtonTitle: Attribute.String;
+    PriceListButtonTitle: Attribute.String & Attribute.Required;
     PriceListFile: Attribute.Media;
     ContactURL: Attribute.String;
-    ContactButtonTitle: Attribute.String;
+    ContactButtonTitle: Attribute.String & Attribute.Required;
   };
 }
 
@@ -456,10 +484,12 @@ export interface SharedCarouselImages extends Schema.Component {
     description: '';
   };
   attributes: {
-    PortraitImage: Attribute.Media;
-    LandscapeImage: Attribute.Media;
+    PortraitImage: Attribute.Media & Attribute.Required;
+    LandscapeImage: Attribute.Media & Attribute.Required;
     Description: Attribute.String;
-    EnableURL: Attribute.Boolean;
+    EnableURL: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
     URL: Attribute.String;
   };
 }
@@ -472,8 +502,12 @@ export interface SharedDescWithPic extends Schema.Component {
   };
   attributes: {
     CarouselImages: Attribute.Media;
-    ImagePosition: Attribute.Enumeration<['Left', 'Right', 'Top']>;
-    EnableCarousel: Attribute.Boolean;
+    ImagePosition: Attribute.Enumeration<['Left', 'Right', 'Top']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'Left'>;
+    EnableCarousel: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
     Description: Attribute.RichText;
     DefaultImage: Attribute.Media;
   };
@@ -550,13 +584,15 @@ export interface SharedTest extends Schema.Component {
     description: '';
   };
   attributes: {
-    Title: Attribute.String;
-    ClickableText: Attribute.String;
-    ClickableURL: Attribute.String;
+    Title: Attribute.String & Attribute.Required;
+    ClickableText: Attribute.String & Attribute.Required;
+    ClickableURL: Attribute.String & Attribute.Required;
     Type: Attribute.Enumeration<
       ['Promotion', 'Announcement', 'FlashDeal', 'Important']
-    >;
-    Enable: Attribute.Boolean;
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'Promotion'>;
+    Enable: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
   };
 }
 

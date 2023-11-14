@@ -13,13 +13,15 @@
   "pluginOptions": {},
   "attributes": {
     "Name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Description": {
       "type": "text"
     },
     "MediaURL": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Type": {
       "type": "enumeration",
@@ -30,7 +32,8 @@
         "Documentary Film",
         "Music Video",
         "Commercial Video"
-      ]
+      ],
+      "required": true
     },
     "Thumbnail": {
       "type": "media",
@@ -49,11 +52,14 @@
       ]
     },
     "IsUploadedMedia": {
-      "type": "boolean"
+      "type": "boolean",
+      "required": true,
+      "default": false
     },
     "Slug": {
       "type": "uid",
-      "targetField": "Name"
+      "targetField": "Name",
+      "required": true
     }
   }
 }

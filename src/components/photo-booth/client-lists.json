@@ -1,19 +1,22 @@
 {
   "collectionName": "components_photo_booth_client_lists",
   "info": {
-    "displayName": "ClientLists"
+    "displayName": "ClientLists",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "Photos": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "Name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }

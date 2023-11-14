@@ -13,23 +13,22 @@
   "pluginOptions": {},
   "attributes": {
     "Name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Description": {
       "type": "string"
     },
     "URL": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Image": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "images"
       ]
     },
     "Category": {
@@ -41,7 +40,8 @@
         "Creative Project",
         "Production House",
         "Photo Booth"
-      ]
+      ],
+      "required": true
     }
   }
 }

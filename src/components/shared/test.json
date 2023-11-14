@@ -8,13 +8,16 @@
   "options": {},
   "attributes": {
     "Title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "ClickableText": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "ClickableURL": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Type": {
       "type": "enumeration",
@@ -23,10 +26,14 @@
         "Announcement",
         "FlashDeal",
         "Important"
-      ]
+      ],
+      "required": true,
+      "default": "Promotion"
     },
     "Enable": {
-      "type": "boolean"
+      "type": "boolean",
+      "required": true,
+      "default": false
     }
   }
 }

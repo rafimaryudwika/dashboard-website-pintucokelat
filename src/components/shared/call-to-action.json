@@ -11,7 +11,8 @@
       "required": true
     },
     "PriceListButtonTitle": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "PriceListFile": {
       "type": "media",
@@ -25,7 +26,8 @@
       "type": "string"
     },
     "ContactButtonTitle": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }

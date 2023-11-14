@@ -9,10 +9,11 @@
     "ServiceName": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "Tagline": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "DefaultPhoto": {
       "type": "media",
@@ -34,7 +35,9 @@
       "type": "string"
     },
     "Accessible": {
-      "type": "boolean"
+      "type": "boolean",
+      "required": true,
+      "default": false
     }
   }
 }

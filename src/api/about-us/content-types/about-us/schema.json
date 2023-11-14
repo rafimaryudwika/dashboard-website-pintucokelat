@@ -20,7 +20,8 @@
       ]
     },
     "Title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "SEO": {
       "type": "component",

@@ -2,7 +2,8 @@
   "collectionName": "components_layout_social_medias",
   "info": {
     "displayName": "Social Media",
-    "icon": "earth"
+    "icon": "earth",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -14,16 +15,20 @@
         "Instagram",
         "TikTok",
         "YouTube"
-      ]
+      ],
+      "required": true
     },
     "URL": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Description": {
       "type": "string"
     },
     "Enabled": {
-      "type": "boolean"
+      "type": "boolean",
+      "required": true,
+      "default": false
     }
   }
 }

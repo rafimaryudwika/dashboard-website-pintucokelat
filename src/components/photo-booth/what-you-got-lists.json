@@ -2,12 +2,14 @@
   "collectionName": "components_photo_booth_what_you_got_lists",
   "info": {
     "displayName": "WhatYouGotLists",
-    "icon": "filter"
+    "icon": "filter",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "Name": {
-      "type": "text"
+      "type": "text",
+      "required": true
     }
   }
 }

@@ -8,7 +8,8 @@
   "options": {},
   "attributes": {
     "Heading": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "ColorCard": {
       "displayName": "ColorCard",

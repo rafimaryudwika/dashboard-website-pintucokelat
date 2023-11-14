@@ -2,7 +2,8 @@
   "collectionName": "components_selfphotostudio_pricelistcards",
   "info": {
     "displayName": "PricelistCard",
-    "icon": "shoppingCart"
+    "icon": "shoppingCart",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -22,14 +23,23 @@
       "type": "string"
     },
     "Photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "EnableDiscount": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "HargaDiskon": {
+      "type": "string"
     }
   }
 }

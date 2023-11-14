@@ -13,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "Name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "MainPhoto": {
       "type": "media",
@@ -25,19 +26,17 @@
     },
     "Slug": {
       "type": "uid",
-      "targetField": "Name"
+      "targetField": "Name",
+      "required": true
     },
     "Type": {
       "type": "enumeration",
       "enum": [
-        "Couple Sessions",
-        "Foto Group",
-        "Wisuda",
-        "Fashion",
-        "Maternity",
-        "Foto Profil",
-        "Dokumentasi"
-      ]
+        "Product Photography",
+        "Design Graphics",
+        "Social Media Content"
+      ],
+      "required": true
     },
     "DynamicGallery": {
       "type": "dynamiczone",
