@@ -16,8 +16,13 @@ export default ({ env }) => ({
             withoutEnlargement: true,
           },
           {
-            name: "240",
-            width: 240,
+            name: "256",
+            width: 256,
+            withoutEnlargement: true,
+          },
+          {
+            name: "360",
+            width: 360,
             withoutEnlargement: true,
           },
           {
@@ -61,8 +66,20 @@ export default ({ env }) => ({
             withoutEnlargement: true,
           },
           {
+            name: "2304",
+            width: 2304,
+            // Won't create an image larger than the original size
+            withoutEnlargement: true,
+          },
+          {
             name: "2560",
             width: 2560,
+            // Won't create an image larger than the original size
+            withoutEnlargement: true,
+          },
+          {
+            name: "2880",
+            width: 2880,
             // Won't create an image larger than the original size
             withoutEnlargement: true,
           },
