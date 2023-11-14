@@ -41,6 +41,9 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.test"
+    },
+    "GalleryTitle": {
+      "type": "string"
     }
   }
 }

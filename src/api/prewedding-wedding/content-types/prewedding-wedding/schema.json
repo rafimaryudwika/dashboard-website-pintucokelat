@@ -30,7 +30,8 @@
       "type": "text"
     },
     "Slug": {
-      "type": "uid"
+      "type": "uid",
+      "targetField": "Name"
     },
     "Type": {
       "type": "enumeration",

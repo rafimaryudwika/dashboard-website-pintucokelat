@@ -4,33 +4,35 @@
   "info": {
     "singularName": "promotion",
     "pluralName": "promotions",
-    "displayName": "Promotion Banner"
+    "displayName": "Promotion Banner",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "nama": {
+    "Name": {
       "type": "string"
     },
-    "deskripsi": {
+    "Description": {
       "type": "string"
     },
-    "url": {
+    "URL": {
       "type": "string"
     },
-    "image": {
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
-    "kategori": {
+    "Category": {
       "type": "enumeration",
       "enum": [
         "Self-Photo Studio",

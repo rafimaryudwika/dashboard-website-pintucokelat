@@ -24,7 +24,8 @@
       ]
     },
     "Slug": {
-      "type": "uid"
+      "type": "uid",
+      "targetField": "Name"
     },
     "Type": {
       "type": "enumeration",
@@ -47,6 +48,9 @@
         "gallery.three-photos",
         "gallery.two-photos"
       ]
+    },
+    "Description": {
+      "type": "text"
     }
   }
 }

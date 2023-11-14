@@ -50,6 +50,10 @@
     },
     "IsUploadedMedia": {
       "type": "boolean"
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Name"
     }
   }
 }

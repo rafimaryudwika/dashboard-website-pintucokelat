@@ -45,7 +45,7 @@
       "repeatable": false,
       "component": "shared.seo"
     },
-    "DynamicZone": {
+    "DynamicContents": {
       "type": "dynamiczone",
       "components": [
         "shared.pic-with-title",

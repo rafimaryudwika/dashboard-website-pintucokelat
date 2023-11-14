@@ -10,7 +10,7 @@
       "type": "string",
       "required": true
     },
-    "deskripsi": {
+    "PriceListButtonTitle": {
       "type": "string"
     },
     "PriceListFile": {
@@ -22,6 +22,9 @@
       ]
     },
     "ContactURL": {
+      "type": "string"
+    },
+    "ContactButtonTitle": {
       "type": "string"
     }
   }

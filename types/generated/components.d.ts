@@ -442,9 +442,10 @@ export interface SharedCallToAction extends Schema.Component {
   };
   attributes: {
     CTATitle: Attribute.String & Attribute.Required;
-    deskripsi: Attribute.String;
+    PriceListButtonTitle: Attribute.String;
     PriceListFile: Attribute.Media;
     ContactURL: Attribute.String;
+    ContactButtonTitle: Attribute.String;
   };
 }
 

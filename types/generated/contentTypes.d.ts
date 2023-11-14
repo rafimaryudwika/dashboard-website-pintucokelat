@@ -482,50 +482,6 @@ export interface PluginUploadFolder extends Schema.CollectionType {
   };
 }
 
-export interface PluginI18NLocale extends Schema.CollectionType {
-  collectionName: 'i18n_locale';
-  info: {
-    singularName: 'locale';
-    pluralName: 'locales';
-    collectionName: 'locales';
-    displayName: 'Locale';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    name: Attribute.String &
-      Attribute.SetMinMax<{
-        min: 1;
-        max: 50;
-      }>;
-    code: Attribute.String & Attribute.Unique;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUsersPermissionsPermission
   extends Schema.CollectionType {
   collectionName: 'up_permissions';
@@ -677,6 +633,50 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface PluginI18NLocale extends Schema.CollectionType {
+  collectionName: 'i18n_locale';
+  info: {
+    singularName: 'locale';
+    pluralName: 'locales';
+    collectionName: 'locales';
+    displayName: 'Locale';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetMinMax<{
+        min: 1;
+        max: 50;
+      }>;
+    code: Attribute.String & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiAboutUsAboutUs extends Schema.SingleType {
   collectionName: 'about_uses';
   info: {
@@ -732,6 +732,7 @@ export interface ApiCreativeProjectCreativeProject extends Schema.SingleType {
     >;
     Carousel: Attribute.Component<'shared.carousel-images', true>;
     AlertBar: Attribute.Component<'shared.test'>;
+    GalleryTitle: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -765,7 +766,10 @@ export interface ApiCreativeProjectClientListCreativeProjectClientList
   attributes: {
     Name: Attribute.String;
     MainPhoto: Attribute.Media & Attribute.Required;
-    Slug: Attribute.UID;
+    Slug: Attribute.UID<
+      'api::creative-project-client-list.creative-project-client-list',
+      'Name'
+    >;
     Type: Attribute.Enumeration<
       [
         'Couple Sessions',
@@ -786,6 +790,7 @@ export interface ApiCreativeProjectClientListCreativeProjectClientList
         'gallery.two-photos'
       ]
     >;
+    Description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -919,6 +924,7 @@ export interface ApiPhPortofolioPhPortofolio extends Schema.CollectionType {
     Thumbnail: Attribute.Media & Attribute.Required;
     UploadedMedia: Attribute.Media;
     IsUploadedMedia: Attribute.Boolean;
+    Slug: Attribute.UID<'api::ph-portofolio.ph-portofolio', 'Name'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1056,6 +1062,7 @@ export interface ApiPhotographyPhotography extends Schema.SingleType {
     >;
     Carousel: Attribute.Component<'shared.carousel-images', true>;
     AlertBar: Attribute.Component<'shared.test'>;
+    GalleryTitle: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1089,7 +1096,11 @@ export interface ApiPhotographyClientListPhotographyClientList
   attributes: {
     Name: Attribute.String & Attribute.Required;
     MainPhoto: Attribute.Media & Attribute.Required;
-    Slug: Attribute.UID & Attribute.Required;
+    Slug: Attribute.UID<
+      'api::photography-client-list.photography-client-list',
+      'Name'
+    > &
+      Attribute.Required;
     Gallery: Attribute.Media & Attribute.Required;
     PhotographySubCategory: Attribute.Relation<
       'api::photography-client-list.photography-client-list',
@@ -1178,7 +1189,7 @@ export interface ApiPreweddingWeddingPreweddingWedding
     Name: Attribute.String;
     MainPhoto: Attribute.Media;
     Description: Attribute.Text;
-    Slug: Attribute.UID;
+    Slug: Attribute.UID<'api::prewedding-wedding.prewedding-wedding', 'Name'>;
     Type: Attribute.Enumeration<['Engagement', 'Pre-Wedding', 'Wedding']>;
     DynamicGalleryGrids: Attribute.DynamicZone<
       [
@@ -1225,6 +1236,7 @@ export interface ApiProductionHouseProductionHouse extends Schema.SingleType {
     DynamicContents: Attribute.DynamicZone<['shared.desc-with-pic']>;
     Carousel: Attribute.Component<'shared.carousel-images', true>;
     AlertBar: Attribute.Component<'shared.test'>;
+    GalleryTitle: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1249,16 +1261,17 @@ export interface ApiPromotionPromotion extends Schema.CollectionType {
     singularName: 'promotion';
     pluralName: 'promotions';
     displayName: 'Promotion Banner';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    nama: Attribute.String;
-    deskripsi: Attribute.String;
-    url: Attribute.String;
-    image: Attribute.Media;
-    kategori: Attribute.Enumeration<
+    Name: Attribute.String;
+    Description: Attribute.String;
+    URL: Attribute.String;
+    Image: Attribute.Media;
+    Category: Attribute.Enumeration<
       [
         'Self-Photo Studio',
         'Wedding',
@@ -1305,7 +1318,7 @@ export interface ApiSelfPhotoStudioSelfPhotoStudio extends Schema.SingleType {
     CallToAction: Attribute.Component<'self-photo-studio.self-photo-cta'>;
     Header: Attribute.Component<'self-photo-studio.self-photo-header'>;
     SEO: Attribute.Component<'shared.seo'>;
-    DynamicZone: Attribute.DynamicZone<
+    DynamicContents: Attribute.DynamicZone<
       ['shared.pic-with-title', 'shared.desc-with-pic']
     >;
     createdAt: Attribute.DateTime;
@@ -1346,6 +1359,7 @@ export interface ApiWeddingPageWeddingPage extends Schema.SingleType {
     >;
     Carousel: Attribute.Component<'shared.carousel-images', true>;
     AlertBar: Attribute.Component<'shared.test', true>;
+    GalleryTitle: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1376,10 +1390,10 @@ declare module '@strapi/types' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
-      'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'plugin::i18n.locale': PluginI18NLocale;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::creative-project.creative-project': ApiCreativeProjectCreativeProject;
       'api::creative-project-client-list.creative-project-client-list': ApiCreativeProjectClientListCreativeProjectClientList;
