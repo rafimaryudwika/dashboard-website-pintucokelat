@@ -193,6 +193,7 @@ export interface HomepageComponentsServicesList extends Schema.Component {
     Accessible: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
+    Slug: Attribute.String;
   };
 }
 
@@ -270,7 +271,7 @@ export interface LayoutSocialMedia extends Schema.Component {
   };
   attributes: {
     SocialMedia: Attribute.Enumeration<
-      ['Facebook', 'X (Twitter)', 'Instagram', 'TikTok', 'YouTube']
+      ['Facebook', 'X (Twitter)', 'Instagram', 'TikTok', 'YouTube', 'LinkedIn']
     > &
       Attribute.Required;
     URL: Attribute.String & Attribute.Required;

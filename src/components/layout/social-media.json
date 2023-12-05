@@ -14,7 +14,8 @@
         "X (Twitter)",
         "Instagram",
         "TikTok",
-        "YouTube"
+        "YouTube",
+        "LinkedIn"
       ],
       "required": true
     },
