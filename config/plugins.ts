@@ -1,6 +1,7 @@
 import { Config as ImageOptimizerConfig } from "strapi-plugin-image-optimizer/dist/server/models/config";
 
 
+
 export default ({ env }) => ({
     // ...
     "image-optimizer": {
@@ -102,6 +103,69 @@ export default ({ env }) => ({
         ],
         quality: 70,
       } satisfies ImageOptimizerConfig,
+    },
+    'preview-button': {
+      config: {
+        contentTypes: [
+          {
+            uid: 'api::prewedding-wedding.prewedding-wedding',
+            draft: {
+              url: `${env('WEBSITE_URL')}/api/postPreview`,
+              query: {
+                secret: env('WEBSITE_PREVIEW_SECRET'),
+                slug: '{Slug}',
+                endpoint: 'prewedding-weddings',
+              },
+            },
+            published: {
+              url: `${env('WEBSITE_URL')}/wedding/{Slug}`,
+            },
+          },
+          {
+            uid: 'api::creative-project-client-list.creative-project-client-list',
+            draft: {
+              url: `${env('WEBSITE_URL')}/api/postPreview`,
+              query: {
+                secret: env('WEBSITE_PREVIEW_SECRET'),
+                slug: '{Slug}',
+                endpoint: 'creative-project-client-lists',
+              },
+            },
+            published: {
+              url: `${env('WEBSITE_URL')}/creative-project/{Slug}`,
+            },
+          },
+          {
+            uid: 'api::photography-client-list.photography-client-list',
+            draft: {
+              url: `${env('WEBSITE_URL')}/api/postPreview`,
+              query: {
+                secret: env('WEBSITE_PREVIEW_SECRET'),
+                slug: '{Slug}',
+                endpoint: 'photography-client-lists',
+              },
+            },
+            published: {
+              url: `${env('WEBSITE_URL')}/fotografi/{Slug}`,
+            },
+          },
+          {
+            uid: 'api::ph-portofolio.ph-portofolio',
+            draft: {
+              url: `${env('WEBSITE_URL')}/api/postPreview`,
+              query: {
+                secret: env('WEBSITE_PREVIEW_SECRET'),
+                slug: '{Slug}',
+                endpoint: 'ph-portofolio',
+              },
+            },
+            published: {
+              url: `${env('WEBSITE_URL')}/productionhouse/{Slug}`,
+            },
+          },
+         
+        ],
+      },
     },
     // ...
   });
