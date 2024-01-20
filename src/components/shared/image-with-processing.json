@@ -1,0 +1,69 @@
+{
+  "collectionName": "components_shared_image_with_processings",
+  "info": {
+    "displayName": "ImageWithProcessing",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "EnableOptimization": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Height": {
+      "type": "biginteger",
+      "required": false
+    },
+    "Width": {
+      "type": "biginteger",
+      "required": true
+    },
+    "OverrideAspectRatio": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Fit": {
+      "type": "enumeration",
+      "enum": [
+        "cover",
+        "contain",
+        "fill",
+        "inside",
+        "outside"
+      ]
+    },
+    "Position": {
+      "type": "enumeration",
+      "enum": [
+        "top",
+        "right top",
+        "right",
+        "right bottom",
+        "bottom",
+        "left bottom",
+        "left",
+        "left top",
+        "center",
+        "centre",
+        "north",
+        "northeast",
+        "east",
+        "southeast",
+        "south",
+        "southwest",
+        "west",
+        "northwest"
+      ]
+    }
+  }
+}

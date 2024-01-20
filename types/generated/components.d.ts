@@ -528,6 +528,50 @@ export interface SharedDescWithPic extends Schema.Component {
   };
 }
 
+export interface SharedImageWithProcessing extends Schema.Component {
+  collectionName: 'components_shared_image_with_processings';
+  info: {
+    displayName: 'ImageWithProcessing';
+    icon: 'picture';
+  };
+  attributes: {
+    Image: Attribute.Media & Attribute.Required;
+    EnableOptimization: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    Height: Attribute.BigInteger;
+    Width: Attribute.BigInteger & Attribute.Required;
+    OverrideAspectRatio: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    Fit: Attribute.Enumeration<
+      ['cover', 'contain', 'fill', 'inside', 'outside']
+    >;
+    Position: Attribute.Enumeration<
+      [
+        'top',
+        'right top',
+        'right',
+        'right bottom',
+        'bottom',
+        'left bottom',
+        'left',
+        'left top',
+        'center',
+        'centre',
+        'north',
+        'northeast',
+        'east',
+        'southeast',
+        'south',
+        'southwest',
+        'west',
+        'northwest'
+      ]
+    >;
+  };
+}
+
 export interface SharedMetaSocial extends Schema.Component {
   collectionName: 'components_shared_meta_socials';
   info: {
@@ -650,6 +694,7 @@ declare module '@strapi/types' {
       'shared.call-to-action': SharedCallToAction;
       'shared.carousel-images': SharedCarouselImages;
       'shared.desc-with-pic': SharedDescWithPic;
+      'shared.image-with-processing': SharedImageWithProcessing;
       'shared.meta-social': SharedMetaSocial;
       'shared.pic-with-title': SharedPicWithTitle;
       'shared.seo': SharedSeo;
