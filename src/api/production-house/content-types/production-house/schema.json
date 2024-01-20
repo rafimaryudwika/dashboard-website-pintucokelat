@@ -44,6 +44,11 @@
     },
     "GalleryTitle": {
       "type": "string"
+    },
+    "EnablePromotion": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

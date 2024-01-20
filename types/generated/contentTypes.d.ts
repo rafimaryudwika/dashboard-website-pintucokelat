@@ -733,6 +733,9 @@ export interface ApiCreativeProjectCreativeProject extends Schema.SingleType {
     Carousel: Attribute.Component<'shared.carousel-images', true>;
     AlertBar: Attribute.Component<'shared.test'>;
     GalleryTitle: Attribute.String & Attribute.Required;
+    EnablePromotion: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -781,7 +784,8 @@ export interface ApiCreativeProjectClientListCreativeProjectClientList
         'gallery.single-photo',
         'gallery.text-description',
         'gallery.three-photos',
-        'gallery.two-photos'
+        'gallery.two-photos',
+        'gallery.video'
       ]
     >;
     Description: Attribute.Text;
@@ -827,6 +831,12 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     DynamicContents: Attribute.DynamicZone<
       ['shared.desc-with-pic', 'shared.pic-with-title']
     >;
+    EnablePromotion: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    ServicePageTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'Our Services'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1022,6 +1032,9 @@ export interface ApiPhotoBoothPhotoBooth extends Schema.SingleType {
     WhatYouGot: Attribute.Component<'photo-booth.what-you-got'>;
     Carousel: Attribute.Component<'photo-booth.photo-booth-carousel'>;
     AlertBar: Attribute.Component<'shared.test'>;
+    EnablePromotion: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1061,6 +1074,9 @@ export interface ApiPhotographyPhotography extends Schema.SingleType {
     Carousel: Attribute.Component<'shared.carousel-images', true>;
     AlertBar: Attribute.Component<'shared.test'>;
     GalleryTitle: Attribute.String & Attribute.Required;
+    EnablePromotion: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1198,7 +1214,8 @@ export interface ApiPreweddingWeddingPreweddingWedding
         'gallery.two-photos',
         'gallery.three-photos',
         'gallery.text-description',
-        'gallery.single-photo'
+        'gallery.single-photo',
+        'gallery.video'
       ]
     >;
     createdAt: Attribute.DateTime;
@@ -1238,6 +1255,9 @@ export interface ApiProductionHouseProductionHouse extends Schema.SingleType {
     Carousel: Attribute.Component<'shared.carousel-images', true>;
     AlertBar: Attribute.Component<'shared.test'>;
     GalleryTitle: Attribute.String;
+    EnablePromotion: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1323,6 +1343,9 @@ export interface ApiSelfPhotoStudioSelfPhotoStudio extends Schema.SingleType {
     DynamicContents: Attribute.DynamicZone<
       ['shared.pic-with-title', 'shared.desc-with-pic']
     >;
+    EnablePromotion: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1362,6 +1385,9 @@ export interface ApiWeddingPageWeddingPage extends Schema.SingleType {
     Carousel: Attribute.Component<'shared.carousel-images', true>;
     AlertBar: Attribute.Component<'shared.test', true>;
     GalleryTitle: Attribute.String & Attribute.Required;
+    EnablePromotion: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

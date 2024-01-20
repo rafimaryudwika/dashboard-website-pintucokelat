@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_gallery_videos",
+  "info": {
+    "displayName": "Video",
+    "icon": "slideshow",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "UploadedVideo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
+    "VideoURL": {
+      "type": "string"
+    },
+    "IsUploadedMedia": {
+      "type": "boolean"
+    }
+  }
+}

@@ -45,7 +45,8 @@
         "gallery.single-photo",
         "gallery.text-description",
         "gallery.three-photos",
-        "gallery.two-photos"
+        "gallery.two-photos",
+        "gallery.video"
       ]
     },
     "Description": {

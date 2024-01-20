@@ -48,6 +48,16 @@
         "shared.desc-with-pic",
         "shared.pic-with-title"
       ]
+    },
+    "EnablePromotion": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "ServicePageTitle": {
+      "type": "string",
+      "required": true,
+      "default": "Our Services"
     }
   }
 }

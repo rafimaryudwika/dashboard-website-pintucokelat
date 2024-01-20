@@ -46,6 +46,11 @@
     "GalleryTitle": {
       "type": "string",
       "required": true
+    },
+    "EnablePromotion": {
+      "type": "boolean",
+      "required": true,
+      "default": false
     }
   }
 }

@@ -59,6 +59,11 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.test"
+    },
+    "EnablePromotion": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

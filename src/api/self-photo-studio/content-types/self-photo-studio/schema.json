@@ -52,6 +52,11 @@
         "shared.pic-with-title",
         "shared.desc-with-pic"
       ]
+    },
+    "EnablePromotion": {
+      "type": "boolean",
+      "required": true,
+      "default": false
     }
   }
 }

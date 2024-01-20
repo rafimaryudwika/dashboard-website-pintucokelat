@@ -48,7 +48,8 @@
         "gallery.two-photos",
         "gallery.three-photos",
         "gallery.text-description",
-        "gallery.single-photo"
+        "gallery.single-photo",
+        "gallery.video"
       ]
     }
   }

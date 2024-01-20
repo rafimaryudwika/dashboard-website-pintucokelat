@@ -119,6 +119,20 @@ export interface GalleryTwoPhotos extends Schema.Component {
   };
 }
 
+export interface GalleryVideo extends Schema.Component {
+  collectionName: 'components_gallery_videos';
+  info: {
+    displayName: 'Video';
+    icon: 'slideshow';
+    description: '';
+  };
+  attributes: {
+    UploadedVideo: Attribute.Media;
+    VideoURL: Attribute.String;
+    IsUploadedMedia: Attribute.Boolean;
+  };
+}
+
 export interface HomepageComponentsOurClient extends Schema.Component {
   collectionName: 'components_homepage_our_clients';
   info: {
@@ -609,6 +623,7 @@ declare module '@strapi/types' {
       'gallery.text-description': GalleryTextDescription;
       'gallery.three-photos': GalleryThreePhotos;
       'gallery.two-photos': GalleryTwoPhotos;
+      'gallery.video': GalleryVideo;
       'homepage-components.our-client': HomepageComponentsOurClient;
       'homepage-components.our-clients-block': HomepageComponentsOurClientsBlock;
       'homepage-components.our-products-block': HomepageComponentsOurProductsBlock;
