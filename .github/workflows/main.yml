@@ -29,7 +29,10 @@ jobs:
           port: 65002
           command_timeout: 30m
           script: |
-            "source ${{secrets.WORK_DIR}} && git checkout ${{secrets.MAIN_BRANCH}} && git pull && npm i && rm -rf dist && rm -rf .cache && exit"
+            "source ${{secrets.WORK_DIR}}" 
+            "git checkout ${{secrets.MAIN_BRANCH}}" 
+            "git pull && npm i"
+            "rm -rf dist && rm -rf .cache"
       - name: Push files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
