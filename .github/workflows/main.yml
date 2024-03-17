@@ -22,7 +22,7 @@ jobs:
       - name: Pull changes on server
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{secrets.SSH_HOST}}
+          host: pintucokelat.com
           username: ${{secrets.SSH_USER}}
           key: ${{secrets.SSH_PRIVATE_KEY}}
           passphrase: ${{secrets.SSH_PASSWORD}}
