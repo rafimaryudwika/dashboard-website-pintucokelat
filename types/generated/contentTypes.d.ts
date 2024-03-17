@@ -785,7 +785,8 @@ export interface ApiCreativeProjectClientListCreativeProjectClientList
         'gallery.text-description',
         'gallery.three-photos',
         'gallery.two-photos',
-        'gallery.video'
+        'gallery.video',
+        'shared.image-with-processing'
       ]
     >;
     Description: Attribute.Text;
