@@ -7,8 +7,8 @@ export default ({env}) => ({
             await strapi.plugin['email'].services.email.send({
                 to: result.Email,
                 from: env('SMTP_USERNAME'),
-                subject: ``,
-                html: ``,
+                subject: ``, //TODO Minta saran ke owner
+                html: ``, //TODO Minta saran ke owner
             })
         } catch (err) {
             console.error(err);
