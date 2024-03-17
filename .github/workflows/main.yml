@@ -25,7 +25,7 @@ jobs:
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
     - name: Pull changes on server
-      run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -p 65002 "source ${{ secrets.WORK_DIR }} && git checkout ${{ secrets.MAIN_BRANCH }} && git pull && npm i && rm -rf /dist && rm -rf /.cache && exit"
+      run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -p 65002 "source ${{ secrets.WORK_DIR }} && git checkout ${{ secrets.MAIN_BRANCH }} && git pull && npm i && rm -rf dist && rm -rf .cache && exit"
     - name: Cleanup SSH key
       run: rm -rf ~/.ssh
     - name: Push files
