@@ -56,14 +56,3 @@ jobs:
           password: ${{secrets.FTP_PASSWORD}}
           port: 21
           server-dir: "/public_html/cms.pintucokelat.com/"
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            **/config/**
-            **/database/**
-            **/public/**
-            **/src/**
-            **/types/**
-            package.json
-            package-lock.json
