@@ -25,7 +25,6 @@ jobs:
           host: pintucokelat.com
           username: ${{secrets.SSH_USER}}
           key: ${{secrets.SSH_PRIVATE_KEY}}
-          passphrase: ${{secrets.SSH_PASSWORD}}
           port: 65002
           command_timeout: 30m
           script: |
