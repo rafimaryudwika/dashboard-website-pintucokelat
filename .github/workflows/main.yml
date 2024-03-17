@@ -34,19 +34,19 @@ jobs:
         #   git pull && npm i
         #   rm -rf dist && rm -rf .cache
 
-      - name: Pull changes on server
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: "pintucokelat.com"
-          username: ${{secrets.SSH_USER}}
-          password: ${{secrets.SSH_PASSWORD}}
-          port: 65002
-          command_timeout: 30m
-          script: |
-            "source ${{secrets.WORK_DIR}}" 
-            "git checkout ${{secrets.MAIN_BRANCH}}" 
-            "git pull && npm i"
-            "rm -rf dist && rm -rf .cache"
+      # - name: Pull changes on server
+      #   uses: appleboy/ssh-action@v1.0.3
+      #   with:
+      #     host: "pintucokelat.com"
+      #     username: ${{secrets.SSH_USER}}
+      #     password: ${{secrets.SSH_PASSWORD}}
+      #     port: 65002
+      #     command_timeout: 30m
+      #     script: |
+      #       "source ${{secrets.WORK_DIR}}" 
+      #       "git checkout ${{secrets.MAIN_BRANCH}}" 
+      #       "git pull && npm i"
+      #       "rm -rf dist && rm -rf .cache"
             
       - name: Push files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
