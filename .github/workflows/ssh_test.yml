@@ -12,6 +12,7 @@ jobs:
           host: "pintucokelat.com"
           username: ${{secrets.SSH_USER}}
           key: ${{secrets.SSH_PRIVATE_KEY}}
+          fingerprint: ${{secrets.SSH_PUBLIC_KEY}}
           port: 65002
           command_timeout: 30m
           debug: true
