@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: Get latest code
         uses: actions/checkout@v3
-      - name: Pull changes on server
+      - name: Connect to SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: "pintucokelat.com"
@@ -15,6 +15,3 @@ jobs:
           port: 65002
           command_timeout: 30m
           debug: true
-          script: |
-            "source ${{secrets.WORK_DIR}}"
-            "node -v
