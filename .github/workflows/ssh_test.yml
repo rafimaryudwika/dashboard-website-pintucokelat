@@ -9,8 +9,8 @@ jobs:
       - name: Connect to SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: "pintucokelat.com"
-          username: ${{secrets.SSH_USER}}
+          host: pintucokelat.com
+          username: u1572792
           key: ${{secrets.SSH_PRIVATE_KEY}}
           port: 65002
           command_timeout: 30m
