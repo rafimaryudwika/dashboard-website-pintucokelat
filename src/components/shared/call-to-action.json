@@ -28,6 +28,14 @@
     "ContactButtonTitle": {
       "type": "string",
       "required": true
+    },
+    "IsUploadedFile": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "PriceListURL": {
+      "type": "string"
     }
   }
 }

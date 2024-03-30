@@ -21,38 +21,36 @@ jobs:
 
       - name: Build application
         run: npm run build
-        
-        # uses: garygrossgarten/github-action-ssh@release
-        # with:
-        #  host: pintucokelat.com
-        #  port: 65002
-        #  username: ${{secrets.SSH_USER}}
-        #  privateKey: ${{secrets.SSH_PRIVATE_KEY}}
-        #  command: |
-        #   source ${{secrets.WORK_DIR}}
-        #   git checkout ${{secrets.MAIN_BRANCH}}
-        #   git pull && npm i
-        #   rm -rf dist && rm -rf .cache
 
-      # - name: Pull changes on server
-      #   uses: appleboy/ssh-action@v1.0.3
-      #   with:
-      #     host: "pintucokelat.com"
-      #     username: ${{secrets.SSH_USER}}
-      #     password: ${{secrets.SSH_PASSWORD}}
-      #     port: 65002
-      #     command_timeout: 30m
-      #     script: |
-      #       "source ${{secrets.WORK_DIR}}" 
-      #       "git checkout ${{secrets.MAIN_BRANCH}}" 
-      #       "git pull && npm i"
-      #       "rm -rf dist && rm -rf .cache"
+      - name: Pull changes on server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{secrets.SSH_HOST}}
+          username: ${{secrets.SSH_USER}}
+          key: ${{secrets.SSH_PRIVATE_KEY}}
+          port: ${{secrets.SSH_PORT}}
+          command_timeout: 30m
+          script: |
+            source ${{secrets.WORK_DIR}}
+            git checkout ${{secrets.MAIN_BRANCH}}
+            git pull && npm i
             
       - name: Push files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: "ftp.pintucokelat.com"
+          server: ${{secrets.FTP_HOST}}
           username: ${{secrets.FTP_USERNAME}}
           password: ${{secrets.FTP_PASSWORD}}
-          port: 21
-          server-dir: "/public_html/cms.pintucokelat.com/"
+          port: ${{secrets.FTP_PORT}}
+          server-dir: ${{secrets.FTP_DIR}}
+          exclude: |
+           **/.git*
+           **/.git*/**
+           **/node_modules/**
+           **/config/**
+           **/database/**
+           **/public/**
+           **/src/**
+           **/types/**
+           package.json
+           package-lock.json

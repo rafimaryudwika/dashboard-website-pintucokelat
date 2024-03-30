@@ -29,7 +29,8 @@
     "DynamicContents": {
       "type": "dynamiczone",
       "components": [
-        "shared.desc-with-pic"
+        "shared.desc-with-pic",
+        "shared.pic-with-title"
       ]
     },
     "Carousel": {
@@ -49,6 +50,12 @@
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "StartAProject": {
+      "displayName": "StartAProjectContent",
+      "type": "component",
+      "repeatable": false,
+      "component": "production-house.start-a-project-content"
     }
   }
 }

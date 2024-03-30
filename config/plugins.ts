@@ -1,7 +1,6 @@
 // import { Config as ImageOptimizerConfig } from "strapi-plugin-image-optimizer/dist/server/models/config";
 
 
-
 export default ({ env }) => ({
     // ...
     // "image-optimizer": {
@@ -184,5 +183,58 @@ export default ({ env }) => ({
         },
       },
     },
+    sentry: {
+      enabled: true,
+      config: {
+        // Only set `dsn` property in production
+        dsn: env('NODE_ENV') === 'production' ? env('SENTRY_DSN') : null,
+      },
+    },
+  //   redis: {
+  //     config: {
+  //         connections: {
+  //             default: {
+  //                 connection: env('REDIS_URL'),
+  //                 settings: {
+  //                     debug: true,
+  //                 },
+  //             },
+  //         },
+  //     } ,
+  // },
+  "rest-cache": {
+    config: {
+        provider: {
+            name: "memory",
+            // getTimeout: 10000,
+            options: {
+                max: 32767,
+                // connection: "default",
+                updateAgeOnGet: false,
+            },
+        },
+        strategy: {
+            logs: true,
+            clearRelatedCache: true,
+            maxAge: 3600000,
+            contentTypes: [
+                // list of Content-Types UID to cache
+               "api::main-layout.main-layout",
+               "api::home-page.home-page",
+               "api::self-photo-studio.self-photo-studio",
+               "api::wedding-page.wedding-page",
+               "api::creative-project.creative-project",
+               "api::photography.photography",
+               "api::production-house.production-house",
+               "api::photo-booth.photo-booth",
+               "api::promotion.promotion",
+               "api::creative-project-client-list.creative-project-client-list",
+               "api::prewedding-wedding.prewedding-wedding",
+               "api::photography-client-list.photography-client-list",
+               "api::ph-portofolio.ph-portofolio",
+            ],
+        },
+    },
+},
     // ...
   });

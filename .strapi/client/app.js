@@ -3,16 +3,22 @@
  * Any modifications made will be discarded.
  */
 import i18N from "@strapi/plugin-i18n/strapi-admin";
+import sentry from "@strapi/plugin-sentry/strapi-admin";
 import seo from "@strapi/plugin-seo/strapi-admin";
 import usersPermissions from "@strapi/plugin-users-permissions/strapi-admin";
 import slug from "custom-slug/strapi-admin";
+import previewButton from "strapi-plugin-preview-button/strapi-admin";
+import restCache from "strapi-plugin-rest-cache/strapi-admin";
 import { renderAdmin } from "@strapi/strapi/admin";
 
 renderAdmin(document.getElementById("strapi"), {
   plugins: {
     i18n: i18N,
+    sentry: sentry,
     seo: seo,
     "users-permissions": usersPermissions,
     slug: slug,
+    "preview-button": previewButton,
+    "rest-cache": restCache,
   },
 });

@@ -385,6 +385,17 @@ export interface PhotoBoothWhatYouGot extends Schema.Component {
   };
 }
 
+export interface ProductionHouseStartAProjectContent extends Schema.Component {
+  collectionName: 'components_production_house_start_a_project_contents';
+  info: {
+    displayName: 'StartAProjectContent';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.RichText;
+  };
+}
+
 export interface SelfPhotoStudioColorCard extends Schema.Component {
   collectionName: 'components_selfphoto_colorcards';
   info: {
@@ -489,6 +500,10 @@ export interface SharedCallToAction extends Schema.Component {
     PriceListFile: Attribute.Media;
     ContactURL: Attribute.String;
     ContactButtonTitle: Attribute.String & Attribute.Required;
+    IsUploadedFile: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<true>;
+    PriceListURL: Attribute.String;
   };
 }
 
@@ -600,10 +615,20 @@ export interface SharedPicWithTitle extends Schema.Component {
   info: {
     displayName: 'PicWithTitle';
     icon: 'picture';
+    description: '';
   };
   attributes: {
     Title: Attribute.String;
     DefaultPicture1: Attribute.Media;
+    TitlePosition: Attribute.Enumeration<['Center', 'Top', 'Disabled']>;
+    EnableCarousel: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    CarouselImages: Attribute.Component<'shared.carousel-images', true>;
+    Description: Attribute.RichText;
+    DisableTitle: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
   };
 }
 
@@ -685,6 +710,7 @@ declare module '@strapi/types' {
       'photo-booth.testimonial': PhotoBoothTestimonial;
       'photo-booth.what-you-got-lists': PhotoBoothWhatYouGotLists;
       'photo-booth.what-you-got': PhotoBoothWhatYouGot;
+      'production-house.start-a-project-content': ProductionHouseStartAProjectContent;
       'self-photo-studio.color-card': SelfPhotoStudioColorCard;
       'self-photo-studio.color-choices-block': SelfPhotoStudioColorChoicesBlock;
       'self-photo-studio.pricelist-block': SelfPhotoStudioPricelistBlock;

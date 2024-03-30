@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_production_house_start_a_project_contents",
+  "info": {
+    "displayName": "StartAProjectContent"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    }
+  }
+}

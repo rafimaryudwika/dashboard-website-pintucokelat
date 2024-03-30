@@ -2,7 +2,8 @@
   "collectionName": "components_shared_pic_with_titles",
   "info": {
     "displayName": "PicWithTitle",
-    "icon": "picture"
+    "icon": "picture",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -10,11 +11,38 @@
       "type": "string"
     },
     "DefaultPicture1": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "TitlePosition": {
+      "type": "enumeration",
+      "enum": [
+        "Center",
+        "Top",
+        "Disabled"
+      ]
+    },
+    "EnableCarousel": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "CarouselImages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.carousel-images"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "DisableTitle": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }
