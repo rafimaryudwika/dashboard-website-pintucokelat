@@ -34,6 +34,7 @@ jobs:
             source ${{secrets.WORK_DIR}}
             git checkout ${{secrets.MAIN_BRANCH}}
             git pull && npm i
+            rm -rf dist && rm -rf .cache
             
       - name: Push files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
