@@ -1,5 +1,5 @@
 // import { Config as ImageOptimizerConfig } from "strapi-plugin-image-optimizer/dist/server/models/config";
-
+import type {Config as SentryConfig} from "@strapi/plugin-sentry/dist/server/src/config.d.ts"
 
 export default ({ env }) => ({
     // ...
@@ -188,16 +188,19 @@ export default ({ env }) => ({
       config: {
         dsn: env('SENTRY_DSN'),
         sendMetadata: true,
-      },
-    },
+        init: {
+          tracesSampleRate: 1.0,
+          environment: env('NODE_ENV'),
+          release: env('GITHUB_PROJECT_NAME') && (env('GITHUB_PROJECT_NAME') + process.env.npm_package_version),
+        }
+      } satisfies SentryConfig,
+    } ,
   "rest-cache": {
     config: {
         provider: {
             name: "memory",
-            // getTimeout: 10000,
             options: {
                 max: 32767,
-                // connection: "default",
                 updateAgeOnGet: false,
             },
         },
