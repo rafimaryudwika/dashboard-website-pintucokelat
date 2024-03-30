@@ -1,0 +1,21 @@
+name: SSH Test
+on: workflow_dispatch
+jobs:
+  ssh-test:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Get latest code
+        uses: actions/checkout@v3
+      - name: Connect to SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{secrets.SSH_HOST}}
+          username: ${{secrets.SSH_USER}}
+          key: ${{secrets.SSH_PRIVATE_KEY}}
+          port: ${{secrets.SSH_PORT}}
+          command_timeout: 30m
+          debug: true
+          script: |
+           source ${{secrets.WORK_DIR}}
+           node -v
+           
