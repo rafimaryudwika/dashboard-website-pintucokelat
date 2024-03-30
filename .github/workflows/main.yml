@@ -15,7 +15,10 @@ jobs:
         uses: actions/setup-node@v4.0.2
         with:
           node-version: "18.18.2"
-
+      - name: Create .env for NodeJS environment
+        run: |
+         touch .env
+         echo ${{secrets.NODEJS_ENV}} >> .env
       - name: Install dependencies
         run: npm install
 
@@ -34,7 +37,6 @@ jobs:
             source ${{secrets.WORK_DIR}}
             git checkout ${{secrets.MAIN_BRANCH}}
             git pull && npm i
-            rm -rf dist && rm -rf .cache
             
       - name: Push files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
