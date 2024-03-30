@@ -19,11 +19,14 @@ jobs:
         run: |
          touch .env
          echo ${{secrets.NODEJS_ENV}} >> .env
+         echo NODE_ENV=production >> .env
       - name: Install dependencies
         run: npm install
 
       - name: Build application
-        run: npm run build
+        run: |
+         npm run build
+         ls -a
 
       - name: Pull changes on server
         uses: appleboy/ssh-action@v1.0.3
@@ -46,14 +49,3 @@ jobs:
           password: ${{secrets.FTP_PASSWORD}}
           port: ${{secrets.FTP_PORT}}
           server-dir: ${{secrets.FTP_DIR}}
-          exclude: |
-           **/.git*
-           **/.git*/**
-           **/node_modules/**
-           **/config/**
-           **/database/**
-           **/public/**
-           **/src/**
-           **/types/**
-           package.json
-           package-lock.json
