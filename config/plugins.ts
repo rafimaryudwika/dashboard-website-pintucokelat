@@ -1,7 +1,6 @@
 // import { Config as ImageOptimizerConfig } from "strapi-plugin-image-optimizer/dist/server/models/config";
 import type {Config as SentryConfig} from "@strapi/plugin-sentry/dist/server/src/config.d.ts"
 import {Integrations} from '@sentry/node';
-import { nodeProfilingIntegration } from "@sentry/profiling-node";
 
 export default ({ env }) => ({
     // ...
@@ -192,7 +191,7 @@ export default ({ env }) => ({
         sendMetadata: true,
         init: {
           tracesSampleRate: 1.0,
-          integrations: [new Integrations.Mysql(), nodeProfilingIntegration()],
+          integrations: [new Integrations.Mysql()],
           environment: env('NODE_ENV'),
           release: env('GITHUB_PROJECT_NAME') && (env('GITHUB_PROJECT_NAME') + process.env.npm_package_version),
         }
