@@ -15,14 +15,17 @@ jobs:
         uses: actions/setup-node@v4.0.2
         with:
           node-version: "18.18.2"
-      # - name: Create .env for NodeJS environment
-      #   run: |
-      #    touch .env
-      #    echo ${{secrets.NODEJS_ENV}} >> .env
-      #    echo NODE_ENV=production >> .env
+          cache: 'npm'
+      - name: Create .env for NodeJS environment
+        env:
+          SENTRY_AUTH_TOKEN: ${{secrets.SENTRY_AUTH_TOKEN}}
+          NODE_ENV: ${{secrets.NODE_ENV}}
+        run: |
+         touch .env
+         echo SENTRY_AUTH_TOKEN="$SENTRY_AUTH_TOKEN" >> .env
+         echo NODE_ENV="$NODE_ENV" >> .env
       - name: Install dependencies
         run: npm install
-
       - name: Build application
         run: |
          npm run build
@@ -52,3 +55,8 @@ jobs:
           password: ${{secrets.FTP_PASSWORD}}
           port: ${{secrets.FTP_PORT}}
           server-dir: ${{secrets.FTP_DIR}}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            .env

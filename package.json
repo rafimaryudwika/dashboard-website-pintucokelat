@@ -7,11 +7,15 @@
   "scripts": {
     "dev": "strapi develop",
     "start": "strapi start",
-    "build": "strapi build",
-    "strapi": "strapi"
+    "build": "strapi build && npm run sentry:sourcemaps",
+    "strapi": "strapi",
+    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org programmer-capek --project dashboard-website-pintucokelat ./dist && sentry-cli sourcemaps upload --org programmer-capek --project dashboard-website-pintucokelat ./dist"
   },
   "dependencies": {
+    "@sentry/cli": "^2.31.0",
     "@sentry/node": "^7.109.0",
+    "@sentry/profiling-node": "^7.109.0",
+    "@sentry/webpack-plugin": "^2.16.0",
     "@strapi/design-system": "^1.16.0",
     "@strapi/plugin-i18n": "4.21.1",
     "@strapi/plugin-sentry": "^4.21.1",

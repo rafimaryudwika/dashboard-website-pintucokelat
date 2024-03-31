@@ -113,3 +113,8 @@ exports
 build
 .strapi-updater.json
 .image-cache
+# Sentry Config File
+.env.sentry-build-plugin
+.env.example
+# Sentry Config File
+.sentryclirc
