@@ -1,5 +1,6 @@
 // import { Config as ImageOptimizerConfig } from "strapi-plugin-image-optimizer/dist/server/models/config";
 import type {Config as SentryConfig} from "@strapi/plugin-sentry/dist/server/src/config.d.ts"
+import Sentry from '@sentry/node';
 
 export default ({ env }) => ({
     // ...
@@ -166,23 +167,23 @@ export default ({ env }) => ({
         ],
       },
     },
-    email: {
-      config: {
-        provider: 'nodemailer',
-        providerOptions: {
-          host: env('SMTP_HOST', 'mail.pintucokelat.com'),
-          port: env('SMTP_PORT', 465),
-          auth: {
-            user: env('SMTP_USERNAME'),
-            pass: env('SMTP_PASSWORD'),
-          },
-        },
-        settings: {
-          defaultFrom: 'admin@pintucokelat.com',
-          defaultReplyTo: 'your_email@address.com',
-        },
-      },
-    },
+    // email: {
+    //   config: {
+    //     provider: 'nodemailer',
+    //     providerOptions: {
+    //       host: env('SMTP_HOST', 'mail.pintucokelat.com'),
+    //       port: env('SMTP_PORT', 465),
+    //       auth: {
+    //         user: env('SMTP_USERNAME'),
+    //         pass: env('SMTP_PASSWORD'),
+    //       },
+    //     },
+    //     settings: {
+    //       defaultFrom: 'admin@pintucokelat.com',
+    //       defaultReplyTo: 'your_email@address.com',
+    //     },
+    //   },
+    // },
     sentry: {
       enabled: true,
       config: {
@@ -190,6 +191,9 @@ export default ({ env }) => ({
         sendMetadata: true,
         init: {
           tracesSampleRate: 1.0,
+          integrations: [
+            ...Sentry.autoDiscoverNodePerformanceMonitoringIntegrations(),
+          ],
           environment: env('NODE_ENV'),
           release: env('GITHUB_PROJECT_NAME') && (env('GITHUB_PROJECT_NAME') + process.env.npm_package_version),
         }
