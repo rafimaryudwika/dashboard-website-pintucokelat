@@ -25,7 +25,8 @@
         "Documentary Film",
         "Music Video",
         "Commercial Video"
-      ]
+      ],
+      "required": true
     },
     "EstimatedBudget": {
       "type": "enumeration",
@@ -35,36 +36,42 @@
         "IDR 10.000.000 - 100.000.000",
         "IDR 100.000.000 - 500.000.000",
         "> IDR 500.000.000"
-      ]
+      ],
+      "required": true
     },
     "Reference": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "ProjectDescription": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "FirstName": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "LastName": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "OrganizationName": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Email": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "PhoneNumber": {
-      "type": "biginteger"
+      "type": "biginteger",
+      "required": true
     },
     "Brief": {
       "type": "media",
       "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "files"
-      ]
+      "allowedTypes": ["files"],
+      "required": true
     }
   }
 }
